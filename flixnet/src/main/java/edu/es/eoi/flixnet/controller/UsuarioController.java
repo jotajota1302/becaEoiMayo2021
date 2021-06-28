@@ -18,7 +18,9 @@ public class UsuarioController {
 
 		System.out.println("compruebo user" + this.getClass().getSimpleName());
 
-		boolean existe = usuarioService.comprueba(user);
+		boolean existe = false;
+			
+		existe = usuarioService.comprueba(user);		
 
 		System.out.println("¿El usuario existe? :" + existe);
 

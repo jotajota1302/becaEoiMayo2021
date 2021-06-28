@@ -11,6 +11,7 @@ public class UsuarioService {
 	public boolean comprueba(Usuario usuario) {
 	
 		System.out.println("compruebo usuario:" + this.getClass().getSimpleName());
+		
 		return this.repository.comprueba(usuario);
 	};
 
