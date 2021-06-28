@@ -5,7 +5,7 @@ import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Usuario;
 import edu.es.eoi.flixnet.service.PeliculaService;
 import edu.es.eoi.flixnet.service.UsuarioService;
-import edu.es.eoi.flixnet.view.MenuPrincipal;
+import edu.es.eoi.flixnet.view.MenuPrincipalView;
 
 public class UsuarioController {
 
@@ -23,7 +23,7 @@ public class UsuarioController {
 		System.out.println("¿El usuario existe? :" + existe);
 
 		if (existe) {
-			MenuPrincipal.printMenu();
+			MenuPrincipalView.printMenu();
 		}
 
 	}

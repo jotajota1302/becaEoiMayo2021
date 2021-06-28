@@ -1,6 +1,6 @@
 package edu.es.eoi.flixnet.view;
 
-public class MenuPrincipal {
+public class MenuPrincipalView {
 	
 	public static void printMenu() {
 		
