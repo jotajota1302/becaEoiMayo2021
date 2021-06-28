@@ -25,8 +25,8 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 
-//		String dni="11111111";
-		
+//		String dni="11111111"		
+	
 		Alumno alumno= findAlumno(args[0]);
 		
 		double media=0.0;
