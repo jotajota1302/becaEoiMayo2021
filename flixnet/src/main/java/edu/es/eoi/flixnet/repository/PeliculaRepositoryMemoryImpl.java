@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.Logger;
+
 import edu.es.eoi.flixnet.entities.Actor;
 import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 
 public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 
+	private static Logger logger= Logger.getLogger(PeliculaRepositoryMemoryImpl.class);
+	
 	private List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
 	public PeliculaRepositoryMemoryImpl() {
@@ -25,16 +29,26 @@ public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 
 	@Override
 	public List<Pelicula> buscarPorActor(Actor actor) {
-		// TODO
-		System.out.println("busco por actor " + this.getClass().getSimpleName());
+		
+		logger.info("entro en el metodo de buscar por actor");
+		// TODO		
+		logger.debug("busco por actor " + actor.getNombre());
+		
+		
+		logger.info("salgo del metodo buscar por actor");
+		
 		return null;
 	}
 
 	@Override
 	public List<Pelicula> buscarPorGenero(GeneroEnum genero) {
 
-		System.out.println("busco por genero " + this.getClass().getSimpleName());
-
+		logger.info("entro en el metodo de buscar por genero");
+	
+		logger.debug("busco por genero " + genero.name());		
+		
+		logger.info("salgo del metodo buscar por genero");
+		
 		return this.peliculas.stream().filter(p -> p.getGenero().equals(genero)).collect(Collectors.toList());
 
 	}
