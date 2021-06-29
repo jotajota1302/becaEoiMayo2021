@@ -15,13 +15,12 @@ public class PeliculaController {
 	
 	PeliculaService service= new PeliculaService();
 	
-	public void buscarPeliculasMenu(){
+	public static void buscarPeliculasMenu(){
 		
 		logger.info("navego al menu de busqueda de peliculas");
 		
-		PeliculasBusquedaView.printMenu();		
-		
-	}
+		PeliculasBusquedaView.printMenu();				
+	}	
 	
 	public List<Pelicula> buscarPeliculaPorGenero(GeneroEnum genero){
 		
@@ -44,6 +43,20 @@ public class PeliculaController {
 		logger.info("entro al metodo mostrar resultados busqueda");
 		
 		PeliculasBusquedaView.printResultadoBusqueda(peliculas);
+		
+	}
+
+	public static void generarExcel() {
+	
+		PeliculaService service= new PeliculaService();
+				
+		try {
+			service.generateExcelPeliculas(service.buscarPorGenero(GeneroEnum.ACCION));
+		
+		} catch (Exception e) {
+			
+			logger.debug(e.getStackTrace());
+		}
 		
 	}
 

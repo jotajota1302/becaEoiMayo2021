@@ -1,8 +1,18 @@
 package edu.es.eoi.flixnet.service;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import edu.es.eoi.flixnet.entities.Actor;
 import edu.es.eoi.flixnet.entities.GeneroEnum;
@@ -41,5 +51,53 @@ public class PeliculaService {
 
 	public void reproducir(Pelicula pelicula) {
 		// TODO
+	}
+	
+	public void generateExcelPeliculas(List<Pelicula> peliculas) {
+		
+		
+	   Workbook wb = new HSSFWorkbook();               
+       Sheet sheet = wb.createSheet("Peliculas");
+  
+       Map<String, Object[]> data = new TreeMap<String, Object[]>();
+       int i=1;
+       
+       data.put(String.valueOf(i), new Object[] {"NOMBRE", "GENERO"});
+        
+        for (Pelicula pelicula : peliculas) {
+        	 i++;
+        	 data.put(String.valueOf(i), new Object[] {pelicula.getNombre(),pelicula.getGenero().getDescripcion()});
+        }        
+   
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset)
+        {
+            Row row = sheet.createRow(rownum++);
+            Object [] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr)
+            {
+               Cell cell = row.createCell(cellnum++);
+               if(obj instanceof String)
+                    cell.setCellValue((String)obj);
+                else if(obj instanceof Integer)
+                    cell.setCellValue((Integer)obj);
+            }
+        }
+        try
+        {
+          
+            FileOutputStream out = new FileOutputStream(new File("peliculas.xlsx"));
+            wb.write(out);
+            out.close();
+            wb.close();
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+		
+		
 	}
 }
