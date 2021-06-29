@@ -11,8 +11,8 @@ public class UsuarioRepositoryMemoryImpl implements UsuarioRepository {
 
 	public UsuarioRepositoryMemoryImpl() {
 
-		Usuario usuario1 = new Usuario("Pepe", "123456");
-		Usuario usuario2 = new Usuario("Maria", "111111");
+		Usuario usuario1 = Usuario.builder().usuario("Pepe").password("123456").build();
+		Usuario usuario2 =Usuario.builder().usuario("Maria").password("123456").build();
 		usuarios.add(usuario1);
 		usuarios.add(usuario2);
 

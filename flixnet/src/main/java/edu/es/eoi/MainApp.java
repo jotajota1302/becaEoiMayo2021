@@ -9,7 +9,7 @@ public class MainApp {
 		
 		LoginView.printLogin();		
 		
-		main(args);
+		main(args);		
 		
 	}
 

@@ -14,7 +14,7 @@ public class UsuarioController {
 
 	public void login(String nombre, String password) {
 
-		Usuario user = new Usuario(nombre,password);		
+		Usuario user = Usuario.builder().usuario(nombre).password(password).build();
 
 		System.out.println("compruebo user" + this.getClass().getSimpleName());
 
