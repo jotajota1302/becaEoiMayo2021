@@ -10,7 +10,7 @@ public interface PeliculaRepository {
 
 	List<Pelicula> buscarPorActor(Actor actor);
 
-	List<Pelicula> buscarPorGenero(GeneroEnum genero);
+	List<Pelicula> buscarPorGenero(GeneroEnum genero) throws Exception;
 
 	List<Pelicula> buscarPorNombre(String nombre);
 

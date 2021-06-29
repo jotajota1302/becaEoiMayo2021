@@ -27,7 +27,15 @@ public class PeliculaController {
 		
 		logger.info("entro al metodo buscar peliculas por genero");
 		
-		return service.buscarPorGenero(genero);
+		try {			
+			return service.buscarPorGenero(genero);
+		
+		} catch (Exception e) {
+			logger.debug(e.getStackTrace());
+			System.out.println("Ha ocurrido un error");
+		}
+		
+		return null;
 		
 	}
 	

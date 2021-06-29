@@ -8,13 +8,15 @@ import edu.es.eoi.flixnet.entities.Actor;
 import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 import edu.es.eoi.flixnet.repository.PeliculaRepository;
-import edu.es.eoi.flixnet.repository.PeliculaRepositoryMemoryImpl;
+import edu.es.eoi.flixnet.repository.PeliculaRepositoryJDBCImpl;
 
 public class PeliculaService {
 
 	private static Logger logger= Logger.getLogger(PeliculaService.class);		
 	
-	private PeliculaRepository repository = new PeliculaRepositoryMemoryImpl();
+//	private PeliculaRepository repository = new PeliculaRepositoryMemoryImpl();
+	
+	private PeliculaRepository repository = new PeliculaRepositoryJDBCImpl();
 
 	public List<Pelicula> buscarPorActor(Actor actor) {
 
@@ -23,7 +25,7 @@ public class PeliculaService {
 		return this.repository.buscarPorActor(actor);
 	}
 
-	public List<Pelicula> buscarPorGenero(GeneroEnum genero) {
+	public List<Pelicula> buscarPorGenero(GeneroEnum genero) throws Exception {
 	
 		logger.info("entro al metodo buscar por genero");
 		
