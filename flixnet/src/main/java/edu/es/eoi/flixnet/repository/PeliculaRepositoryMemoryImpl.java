@@ -32,10 +32,7 @@ public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 		
 		logger.info("entro en el metodo de buscar por actor");
 		// TODO		
-		logger.debug("busco por actor " + actor.getNombre());
-		
-		
-		logger.info("salgo del metodo buscar por actor");
+		logger.debug("busco por actor " + actor.getNombre());	
 		
 		return null;
 	}
@@ -45,10 +42,8 @@ public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 
 		logger.info("entro en el metodo de buscar por genero");
 	
-		logger.debug("busco por genero " + genero.name());		
-		
-		logger.info("salgo del metodo buscar por genero");
-		
+		logger.debug("busco por genero " + genero.name());			
+			
 		return this.peliculas.stream().filter(p -> p.getGenero().equals(genero)).collect(Collectors.toList());
 
 	}
@@ -56,7 +51,9 @@ public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 	@Override
 	public List<Pelicula> buscarPorNombre(String nombre) {
 		
-		System.out.println("busco por nombre " + this.getClass().getSimpleName());
+		logger.info("entro en el metodo de buscar por nombre");
+		
+		logger.debug("busco por genero " + nombre);			
 		
 		return this.peliculas.stream().filter(p -> p.getNombre().equalsIgnoreCase(nombre)).collect(Collectors.toList());
 	}

@@ -25,7 +25,8 @@ public class UsuarioService {
 
 	public void alta(Usuario usuario) {
 		
-		System.out.println("alta usuario:" + this.getClass().getSimpleName());
+		logger.info("entro en el metodo de alta de usuario");
+		
 		this.repository.alta(usuario);
 
 	};

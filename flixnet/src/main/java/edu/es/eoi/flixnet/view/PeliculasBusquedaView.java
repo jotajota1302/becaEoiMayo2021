@@ -13,18 +13,16 @@ public class PeliculasBusquedaView {
 	public static void printMenu() {
 		
 		System.out.println("Elige un genero:");
-		int i=1;
 		for (GeneroEnum genero : GeneroEnum.values()) {
-			System.out.println(String.valueOf(i).concat("-").concat(genero.name()));
-			i++;
+			System.out.println(genero.getCodigo()+"-"+genero.getDescripcion());			
 		}
 		
 		Scanner scan=new Scanner(System.in);
 		int opcion= scan.nextInt();
+						
+		GeneroEnum genero=GeneroEnum.getNombreBycodigo(opcion);
 		
-		//como recupero el genero si tengo un int??????
-		
-		List<Pelicula> peliculas = controller.buscarPeliculaPorGenero(GeneroEnum.ACCION);		
+		List<Pelicula> peliculas = controller.buscarPeliculaPorGenero(genero);		
 		
 		controller.mostrarResultadosBusqueda(peliculas);
 		

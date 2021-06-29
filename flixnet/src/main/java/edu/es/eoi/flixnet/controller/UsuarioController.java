@@ -35,6 +35,7 @@ public class UsuarioController {
 		if (existe) {
 			
 			logger.info("Salgo del metodo login");
+			
 			MenuPrincipalView.printMenu();
 		}	
 		
@@ -44,13 +45,22 @@ public class UsuarioController {
 
 	public void buscarPelicula(String nombre, Actor actor, GeneroEnum genero) {
 
+		logger.info("Entro en el metodo buscar pelicula");
+
+		
 		if (nombre != null) {
+			
+			logger.debug("Entro en el metodo buscar por nombre: " + nombre);
+			
 			peliculaService.buscarPorNombre(nombre);
-			System.out.println("busco por nombre");
+			
 		}
 		if (actor != null) {
+			
+			logger.debug("Entro en el metodo buscar por actor: " + actor.getNombre());
+			
 			peliculaService.buscarPorActor(actor);
-			System.out.println("busco por nombre");
+			
 		}
 
 	}
