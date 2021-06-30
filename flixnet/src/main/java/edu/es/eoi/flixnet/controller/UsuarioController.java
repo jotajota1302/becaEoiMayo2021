@@ -11,7 +11,7 @@ public class UsuarioController {
 
 	private static Logger logger = Logger.getLogger(UsuarioController.class);
 
-	private UsuarioService usuarioService = new UsuarioService();
+	private UsuarioService usuarioService = new UsuarioService();	
 
 	public void login(String nombre, String password) {
 
@@ -44,9 +44,5 @@ public class UsuarioController {
 
 	}
 
-	public void reproducir() {
-		// TODO implement
-
-	}
 
 }
