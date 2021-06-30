@@ -1,9 +1,10 @@
 package edu.es.eoi.flixnet;
 
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import edu.es.eoi.flixnet.entities.GeneroEnum;
@@ -13,6 +14,20 @@ import edu.es.eoi.flixnet.repository.PeliculaRepositoryJDBCImpl;
 
 public class PeliculaRepositoryJDBCImplTest {
 
+	@Before
+	public void beforeTests() {
+		
+		//se ejecuta antes de los test
+	}
+	
+	@After
+	public void afterTests() {
+		
+		//se ejecuta despues de los test
+		
+	}
+	
+	
 	@Test
 	public void testBuscarPorGenero() {
 		
@@ -21,8 +36,7 @@ public class PeliculaRepositoryJDBCImplTest {
 		try {
 		
 		assertNotNull(repository.buscarPorGenero(GeneroEnum.ACCION).size());	
-		assertEquals(0,repository.buscarPorGenero(GeneroEnum.FANTASIA).size());
-		
+				
 		} catch (Exception e) {		
 			e.printStackTrace();
 		}

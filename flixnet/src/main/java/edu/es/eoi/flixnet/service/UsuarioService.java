@@ -4,15 +4,15 @@ import org.apache.log4j.Logger;
 
 import edu.es.eoi.flixnet.entities.Usuario;
 import edu.es.eoi.flixnet.repository.UsuarioRepository;
-import edu.es.eoi.flixnet.repository.UsuarioRepositoryFileTextImpl;
+import edu.es.eoi.flixnet.repository.UsuarioRepositoryJDBCImpl;
 
 public class UsuarioService {
 
 	private static Logger logger= Logger.getLogger(UsuarioService.class);
 	
-	private UsuarioRepository repository = new UsuarioRepositoryFileTextImpl();
+	private UsuarioRepository repository = new UsuarioRepositoryJDBCImpl();
 
-	public boolean comprueba(Usuario usuario) {
+	public boolean comprueba(Usuario usuario) throws Exception {
 		
 		logger.info("entro en el metodo de comprueba usuario");
 		

@@ -1,3 +1,0 @@
-Nombre,password,mail
-Pepe,123456,pepe@hotmail.com
-Maria,222222,maria@hotmail.com

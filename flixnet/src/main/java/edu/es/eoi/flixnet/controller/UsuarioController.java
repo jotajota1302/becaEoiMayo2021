@@ -23,14 +23,19 @@ public class UsuarioController {
 
 		boolean existe = false;
 
-		existe = usuarioService.comprueba(user);
+		try {
+			existe = usuarioService.comprueba(user);
+			
+			logger.debug("El usuario existe: " + existe);
 
-		logger.debug("El usuario existe: " + existe);
+			if (existe) {
 
-		if (existe) {
-
-			logger.info("Salgo del metodo login");
-
+				logger.info("Salgo del metodo login");
+				MenuPrincipalView.printMenu();
+			}
+			
+		} catch (Exception e) {
+			logger.debug("Ha ocurrido un error");
 			MenuPrincipalView.printMenu();
 		}
 

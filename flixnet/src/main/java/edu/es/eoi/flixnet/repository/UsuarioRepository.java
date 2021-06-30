@@ -4,7 +4,7 @@ import edu.es.eoi.flixnet.entities.Usuario;
 
 public interface UsuarioRepository {
 
-	public boolean comprueba(Usuario usuario);
+	public boolean comprueba(Usuario usuario) throws Exception;
 
 	public void alta(Usuario usuario);
 
