@@ -1,7 +1,5 @@
 package edu.es.eoi.flixnet.view;
 
-import java.util.Scanner;
-
 import edu.es.eoi.flixnet.controller.UsuarioController;
 
 public class LoginView {
