@@ -25,10 +25,13 @@ public class Person {
 
 	@Column
 	private String surname;
+	
+	@Column
+	private String mail;
 
 	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL, optional = false)
 	private Address address;
-		
+				
 	public Person() {
 
 	}

@@ -19,7 +19,7 @@ public class PersonRepository {
 		em = factory.createEntityManager();
 	}
 
-	// METODO CREAR CUENTA
+	// METODO CREAR 
 	public Person create(Person person) {
 
 		try {
@@ -39,7 +39,7 @@ public class PersonRepository {
 
 	}
 
-	// METODO BUSCAR TODOS
+	// METODO BUSCAR 
 	@SuppressWarnings("unchecked")
 	public List<Person> findAll() {
 

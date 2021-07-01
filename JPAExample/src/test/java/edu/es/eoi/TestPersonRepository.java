@@ -71,9 +71,9 @@ public class TestPersonRepository {
 		person.setAddress(adress);
 				
 		person=repository.create(person);		
+				
+		assertNotNull(repository.findById(person.getId()));
 		
-		Person var = repository.findById(person.getId());
-		System.out.println(var.getName());
 	}
 
 	
