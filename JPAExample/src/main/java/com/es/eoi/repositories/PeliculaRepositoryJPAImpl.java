@@ -10,38 +10,56 @@ public class PeliculaRepositoryJPAImpl {
 
 	public EntityManager em;
 
-	// CONSTRUCTOR
 	public PeliculaRepositoryJPAImpl() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("PersonPersistenceUnit");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("PeliculasPersistenceUnit");
 		em = factory.createEntityManager();
 	}
 
 	public Pelicula savePelicula(Pelicula pelicula) {
-		
-		//la guardas 
-		
+
+		try {
+			em.getTransaction().begin();
+			em.persist(pelicula);
+			em.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			em.getTransaction().rollback();
+		}
+
 		return pelicula;
 	}
-	
+
 	public Pelicula updatePelicula(Pelicula pelicula) {
-		
-		//la updateas 
+
+		try {		
+			em.getTransaction().begin();
+			em.merge(pelicula);
+			em.getTransaction().commit();		
+		} catch (Exception e) {
+			em.getTransaction().rollback();			
+		}
 		
 		return pelicula;
 	}
-	
+
 	public void removePelicula(Pelicula pelicula) {
-		
-		//la borras 
-		
-		
+
+		try {		
+			em.getTransaction().begin();
+			em.remove(pelicula);
+			em.getTransaction().commit();
+			System.out.println("Exito al borrar");
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			System.out.println("Error al borrar");
+		}
 	}
-	
+
 	public Pelicula findPelicula(int id) {
-		
-		//la encuentras 
-		
-		return null;
+
+		return em.find(Pelicula.class, id);
+
 	}
-	
+
 }
