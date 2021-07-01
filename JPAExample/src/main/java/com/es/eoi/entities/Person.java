@@ -15,23 +15,22 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Person {
-	
-	@Id	
-	@GeneratedValue(strategy = GenerationType.AUTO)	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column
 	private String name;
-	
+
 	@Column
 	private String surname;
-	
-	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL,optional = false)
-		private Address address;
 
+	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL, optional = false)
+	private Address address;
 		
-	public Person() {	
-	
+	public Person() {
+
 	}
 
 }

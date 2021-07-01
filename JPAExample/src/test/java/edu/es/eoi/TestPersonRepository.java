@@ -1,3 +1,4 @@
+package edu.es.eoi;
 import static org.junit.Assert.assertNotNull;
 
 import org.apache.log4j.Level;
