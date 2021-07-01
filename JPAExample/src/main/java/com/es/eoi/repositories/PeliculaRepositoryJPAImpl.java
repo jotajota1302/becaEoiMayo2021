@@ -48,11 +48,9 @@ public class PeliculaRepositoryJPAImpl {
 		try {		
 			em.getTransaction().begin();
 			em.remove(pelicula);
-			em.getTransaction().commit();
-			System.out.println("Exito al borrar");
+			em.getTransaction().commit();			
 		} catch (Exception e) {
-			em.getTransaction().rollback();
-			System.out.println("Error al borrar");
+			em.getTransaction().rollback();		
 		}
 	}
 
