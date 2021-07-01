@@ -10,14 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
 @Entity(name = "pelicula")
+@NoArgsConstructor
 public class Pelicula {
 
 	@Id
@@ -33,7 +33,7 @@ public class Pelicula {
 	
 	@Column(name = "genero")
 	private String tipo;
-	
 
+	
 	
 }

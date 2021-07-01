@@ -1,5 +1,6 @@
 package edu.es.eoi;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -20,7 +21,8 @@ public class TestPeliculaRepository {
 	@Test
 	public void testSavePelicula() {		
 		
-		Pelicula p=Pelicula.builder().nombre("TEST").build();		
+		Pelicula p=new Pelicula();
+		p.setNombre("TEST");
 		p=repository.savePelicula(p);		
 		ids.add(p.getId());		
 		
@@ -31,9 +33,9 @@ public class TestPeliculaRepository {
 	@Test
 	public void testUpdatePelicula() {
 
-		Pelicula p=Pelicula.builder().nombre("TEST").build();
-		repository.savePelicula(p);
-		
+		Pelicula p=new Pelicula();
+		p.setNombre("TEST");
+		p=repository.savePelicula(p);		
 		ids.add(p.getId());		
 		
 		p.setNombre("MODIFIED");
@@ -45,7 +47,8 @@ public class TestPeliculaRepository {
 	@Test
 	public void testRemovePelicula() {
 		
-		Pelicula p=Pelicula.builder().nombre("TEST").build();
+		Pelicula p=new Pelicula();
+		p.setNombre("TEST");
 		p=repository.savePelicula(p);
 		
 		repository.removePelicula(p);
@@ -57,12 +60,20 @@ public class TestPeliculaRepository {
 	@Test
 	public void testFindPelicula() {
 		
-		Pelicula p=Pelicula.builder().nombre("TEST").build();
-		p=repository.savePelicula(p);
-		
+		Pelicula p=new Pelicula();
+		p.setNombre("TEST");
+		p=repository.savePelicula(p);		
 		ids.add(p.getId());		
 		
 		assertNotNull(repository.findPelicula(p.getId()));
+	}
+	
+	@Test
+	public void testFindByGenero() {		
+				
+		List<Pelicula> lista=repository.findPeliculaByGenero("ACCION");
+				
+		assertEquals(3,lista.size());
 	}
 	
 	@After
