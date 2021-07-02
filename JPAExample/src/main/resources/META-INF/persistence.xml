@@ -27,4 +27,17 @@
 			<property name="hibernate.show_sql" value="true" />			
 		</properties>
 	</persistence-unit>
+	
+	<persistence-unit name="BancoPersistenceUnit">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/banco?serverTimezone=UTC" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="root " />
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.show_sql" value="true" />			
+		</properties>
+	</persistence-unit>
+	
 </persistence>
