@@ -1,6 +1,7 @@
 package edu.es.eoi.flixnet.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,6 +35,10 @@ public class Pelicula {
 	@Column(name = "genero")
 	private String tipo;
 	
-	private GeneroEnum genero;
+	private List<Categoria> categoria;
+	
+	private List<Actor> actores;
+	
+	private List<Usuario> usuarios;
 	
 }

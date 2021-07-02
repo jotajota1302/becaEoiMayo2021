@@ -1,6 +1,7 @@
 package edu.es.eoi.flixnet.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -17,5 +18,7 @@ public class Usuario extends Persona {
 	private String password;
 	private boolean premium;	
 	private Date fechaAlta;	
+	
+	private List<Pelicula> favoritas;
 
 }
