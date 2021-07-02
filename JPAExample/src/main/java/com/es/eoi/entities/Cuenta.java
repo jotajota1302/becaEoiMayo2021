@@ -34,11 +34,11 @@ public class Cuenta {
 	private int saldo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_BANCO", referencedColumnName = "ID")
+	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
 	private Banco banco;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DNI_CLIENTES", referencedColumnName = "DNI")
+	@JoinColumn(name = "DNI", referencedColumnName = "DNI")
 	private Cliente cliente;
 
 }
