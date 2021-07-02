@@ -72,8 +72,6 @@ public class BancoRepositoryJPAImpl {
 		return query.getResultList();
 
 	}
-
-
 	
 
 }
