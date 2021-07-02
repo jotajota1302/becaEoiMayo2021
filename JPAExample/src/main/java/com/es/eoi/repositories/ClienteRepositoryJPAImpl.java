@@ -54,9 +54,9 @@ public class ClienteRepositoryJPAImpl {
 		}
 	}
 
-	public Cliente findCliente(String nif) {
+	public Cliente findCliente(String dni) {
 
-		return em.find(Cliente.class, nif);
+		return em.find(Cliente.class, dni);
 
 	}
 
