@@ -1,8 +1,11 @@
 package com.es.eoi.repositories;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.es.eoi.entities.Banco;
 
@@ -59,6 +62,17 @@ public class BancoRepositoryJPAImpl {
 		return em.find(Banco.class, id);
 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Banco> findAll() {
+
+		String hql = "from Banco";
+		Query query = em.createQuery(hql);
+
+		return query.getResultList();
+
+	}
+
 
 	
 

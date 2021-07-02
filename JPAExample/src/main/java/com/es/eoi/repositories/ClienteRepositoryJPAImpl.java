@@ -1,8 +1,11 @@
 package com.es.eoi.repositories;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.es.eoi.entities.Cliente;
 
@@ -60,6 +63,14 @@ public class ClienteRepositoryJPAImpl {
 
 	}
 
-	
+	@SuppressWarnings("unchecked")
+	public List<Cliente> findAll() {
+
+		String hql = "from Cliente";
+		Query query = em.createQuery(hql);
+
+		return query.getResultList();
+
+	}
 
 }

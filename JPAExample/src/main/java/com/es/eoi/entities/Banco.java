@@ -38,7 +38,7 @@ public class Banco {
 	private String ciudad;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
-	private List<Cuenta> cuenta;
+	private List<Cuenta> cuentas;
 
 
 }
