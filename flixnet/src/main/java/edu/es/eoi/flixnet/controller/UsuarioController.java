@@ -17,8 +17,10 @@ public class UsuarioController {
 
 		logger.info("Entro en el metodo login");
 
-		Usuario user = Usuario.builder().usuario(nombre).password(password).build();
-
+		Usuario user = new Usuario();
+		user.setNombre(nombre);
+		user.setPassword(password);
+			
 		logger.debug("Compruebo el usuario:" + nombre);
 
 		boolean existe = false;

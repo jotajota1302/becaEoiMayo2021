@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import org.apache.log4j.Logger;
 
 import edu.es.eoi.flixnet.entities.Actor;
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 
 public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
@@ -18,12 +17,11 @@ public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 
 	public PeliculaRepositoryMemoryImpl() {
 
-		peliculas.add(Pelicula.builder().nombre("Jungla de Cristal 1").genero(GeneroEnum.ACCION).build());
-		peliculas.add(Pelicula.builder().nombre("Jungla de Cristal 2").genero(GeneroEnum.ACCION).build());
-		peliculas.add(Pelicula.builder().nombre("Jungla de Cristal 3").genero(GeneroEnum.ACCION).build());
-		peliculas.add(Pelicula.builder().nombre("Ace Ventura").genero(GeneroEnum.COMEDIA).build());
-		peliculas.add(Pelicula.builder().nombre("Mortadelo y Filemon").genero(GeneroEnum.COMEDIA).build());
-		peliculas.add(Pelicula.builder().nombre("El diario de Noa").genero(GeneroEnum.AMOR).build());
+		peliculas.add(new Pelicula(0, "Jungla de Cristal 1", null, "Accion"));
+		peliculas.add(new Pelicula(1, "Jungla de Cristal 2", null, "Accion"));
+		peliculas.add(new Pelicula(2, "Jungla de Cristal 3", null, "Accion"));
+		peliculas.add(new Pelicula(3, "Ace Ventura", null, "Comedia"));
+		peliculas.add(new Pelicula(4, "El diario de Noa", null, "Amor"));	
 
 	}
 
@@ -38,11 +36,11 @@ public class PeliculaRepositoryMemoryImpl implements PeliculaRepository {
 	}
 
 	@Override
-	public List<Pelicula> buscarPorGenero(GeneroEnum genero) {
+	public List<Pelicula> buscarPorGenero(String genero) {
 
 		logger.info("entro en el metodo de buscar por genero");
 	
-		logger.debug("busco por genero " + genero.name());			
+		logger.debug("busco por genero " + genero);			
 			
 		return this.peliculas.stream().filter(p -> p.getGenero().equals(genero)).collect(Collectors.toList());
 

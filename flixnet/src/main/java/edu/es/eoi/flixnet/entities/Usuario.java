@@ -3,14 +3,16 @@ package edu.es.eoi.flixnet.entities;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Usuario extends Persona {
 

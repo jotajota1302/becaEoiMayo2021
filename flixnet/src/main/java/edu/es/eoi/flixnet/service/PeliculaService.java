@@ -15,7 +15,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import edu.es.eoi.flixnet.entities.Actor;
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 import edu.es.eoi.flixnet.repository.PeliculaRepository;
 import edu.es.eoi.flixnet.repository.PeliculaRepositoryJDBCImpl;
@@ -35,7 +34,7 @@ public class PeliculaService {
 		return this.repository.buscarPorActor(actor);
 	}
 
-	public List<Pelicula> buscarPorGenero(GeneroEnum genero) throws Exception {
+	public List<Pelicula> buscarPorGenero(String genero) throws Exception {
 	
 		logger.info("entro al metodo buscar por genero");
 		
@@ -66,7 +65,7 @@ public class PeliculaService {
         
         for (Pelicula pelicula : peliculas) {
         	 i++;
-        	 data.put(String.valueOf(i), new Object[] {pelicula.getNombre(),pelicula.getGenero().getDescripcion()});
+        	 data.put(String.valueOf(i), new Object[] {pelicula.getNombre(),pelicula.getGenero()});
         }        
    
         Set<String> keyset = data.keySet();

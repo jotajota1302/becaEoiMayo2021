@@ -2,7 +2,6 @@ package edu.es.eoi.flixnet.view;import java.util.List;
 import java.util.Scanner;
 
 import edu.es.eoi.flixnet.controller.PeliculaController;
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 
 public class PeliculasBusquedaView {
@@ -12,17 +11,12 @@ public class PeliculasBusquedaView {
 	@SuppressWarnings("resource")
 	public static void printMenu() {
 		
-		System.out.println("Elige un genero:");
-		for (GeneroEnum genero : GeneroEnum.values()) {
-			System.out.println(genero.getCodigo()+"-"+genero.getDescripcion());			
-		}
+		System.out.println("Elige un genero:");		
 		
 		Scanner scan=new Scanner(System.in);
-		int opcion= scan.nextInt();
-						
-		GeneroEnum genero=GeneroEnum.getNombreBycodigo(opcion);
+		String opcion= scan.next();				
 		
-		List<Pelicula> peliculas = controller.buscarPeliculaPorGenero(genero);		
+		List<Pelicula> peliculas = controller.buscarPeliculaPorGenero(opcion);		
 		
 		controller.mostrarResultadosBusqueda(peliculas);
 		

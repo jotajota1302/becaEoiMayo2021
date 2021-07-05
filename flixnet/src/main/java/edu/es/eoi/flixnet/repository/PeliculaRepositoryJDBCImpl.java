@@ -13,7 +13,6 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import edu.es.eoi.flixnet.entities.Actor;
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 
 public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
@@ -50,7 +49,7 @@ public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 	}
 
 	@Override
-	public List<Pelicula> buscarPorGenero(GeneroEnum genero) throws Exception  {
+	public List<Pelicula> buscarPorGenero(String genero) throws Exception  {
 
 		logger.info("accediendo al metodo buscar por genero");
 		
@@ -58,7 +57,7 @@ public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 		
 		Connection con = getConection();
 		PreparedStatement statement = con.prepareStatement("SELECT * FROM pelicula p WHERE p.genero=?");
-		statement.setString(1, genero.name());
+		statement.setString(1, genero);
 		
 		logger.debug("query:" + statement.toString());
 		
@@ -66,10 +65,13 @@ public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 		
 		while (rs.next()) {
 			
-			peliculas.add(Pelicula.builder()
-					  .nombre(rs.getString("nombre"))
-					  .genero(GeneroEnum.valueOf(rs.getString("genero")))
-					  .build());	
+			Pelicula p= new Pelicula();
+			p.setId(rs.getInt("id"));
+			p.setNombre(rs.getString("nombre"));
+			p.setGenero(rs.getString("genero"));
+		
+			peliculas.add(p);
+		
 		}
 		
 		return peliculas;

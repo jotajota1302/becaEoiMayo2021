@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.entities.Pelicula;
 import edu.es.eoi.flixnet.service.PeliculaService;
 import edu.es.eoi.flixnet.view.PeliculasBusquedaView;
@@ -22,7 +21,7 @@ public class PeliculaController {
 		PeliculasBusquedaView.printMenu();				
 	}	
 	
-	public List<Pelicula> buscarPeliculaPorGenero(GeneroEnum genero){
+	public List<Pelicula> buscarPeliculaPorGenero(String genero){
 		
 		logger.info("entro al metodo buscar peliculas por genero");
 		
@@ -51,7 +50,7 @@ public class PeliculaController {
 		PeliculaService service= new PeliculaService();
 				
 		try {
-			service.generateExcelPeliculas(service.buscarPorGenero(GeneroEnum.ACCION));
+			service.generateExcelPeliculas(service.buscarPorGenero("Accion"));
 		
 		} catch (Exception e) {
 			

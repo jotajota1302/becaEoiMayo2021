@@ -1,10 +1,9 @@
 package edu.es.eoi.flixnet;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.service.PeliculaService;
 
 public class PeliculasServiceTest {
@@ -16,7 +15,7 @@ public class PeliculasServiceTest {
 
 		try {
 			
-			assertNotNull(service.buscarPorGenero(GeneroEnum.ACCION));
+			assertNotNull(service.buscarPorGenero("Accion"));
 			
 		} catch (Exception e) {		
 			e.printStackTrace();

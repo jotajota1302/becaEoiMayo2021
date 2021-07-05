@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.es.eoi.flixnet.entities.GeneroEnum;
 import edu.es.eoi.flixnet.repository.PeliculaRepository;
 import edu.es.eoi.flixnet.repository.PeliculaRepositoryJDBCImpl;
 
@@ -35,7 +34,7 @@ public class PeliculaRepositoryJDBCImplTest {
 		
 		try {
 		
-		assertNotNull(repository.buscarPorGenero(GeneroEnum.ACCION).size());	
+		assertNotNull(repository.buscarPorGenero("Accion").size());	
 				
 		} catch (Exception e) {		
 			e.printStackTrace();

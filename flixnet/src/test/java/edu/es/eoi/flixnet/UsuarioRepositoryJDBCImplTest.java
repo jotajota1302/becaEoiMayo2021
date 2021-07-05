@@ -17,8 +17,10 @@ public class UsuarioRepositoryJDBCImplTest {
 		
 		try {
 			
-			assertEquals(true,repository.comprueba(Usuario.builder().usuario("pepe").password("123456").build()));
-			assertEquals(false,repository.comprueba(Usuario.builder().usuario("pepe").password("123125").build()));			
+			
+			
+			assertEquals(true,repository.comprueba(new Usuario("Pepe","123456",false,null,null)));
+			assertEquals(false,repository.comprueba(new Usuario("Pep","123456",false,null,null)));			
 			
 		} catch (Exception e) {
 				e.printStackTrace();

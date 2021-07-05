@@ -17,8 +17,8 @@ public class UsuarioRepositoryMemoryImpl implements UsuarioRepository {
 
 		logger.debug("cargo en memoria 2 usuarios");
 		
-		Usuario usuario1 = Usuario.builder().usuario("Pepe").password("123456").build();
-		Usuario usuario2 =Usuario.builder().usuario("Maria").password("123456").build();
+		Usuario usuario1 =new Usuario("Pepe","123456",false,null,null);
+		Usuario usuario2 =new Usuario("Maria","11111",false,null,null);
 		usuarios.add(usuario1);
 		usuarios.add(usuario2);
 
