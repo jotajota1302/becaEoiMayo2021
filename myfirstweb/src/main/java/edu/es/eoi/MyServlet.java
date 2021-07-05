@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.es.eoi.flixnet.repository.PeliculaRepositoryJPAImpl;
+
 public class MyServlet extends HttpServlet{
 	/**
 	 * 
@@ -16,7 +18,9 @@ public class MyServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		resp.getOutputStream().print("Bienvenido a mi app");
+		PeliculaRepositoryJPAImpl repo=new PeliculaRepositoryJPAImpl();
+		
+		resp.getOutputStream().print(repo.find(Integer.valueOf(req.getParameter("id"))).getNombre());
 		
 	}
 	
