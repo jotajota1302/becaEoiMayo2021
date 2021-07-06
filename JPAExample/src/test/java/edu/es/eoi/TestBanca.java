@@ -108,7 +108,7 @@ public class TestBanca {
 				banco.getCuentas().add(cuenta);
 			}
 
-			Cuenta cuentaSaved = repositoryCuentas.save(cuenta);
+			Cuenta cuentaSaved = repositoryCuentas.saveCuenta(cuenta);
 
 			assertNotNull(c);
 
@@ -116,7 +116,7 @@ public class TestBanca {
 
 			cuentaSaved.setSaldo(3000);
 
-			repositoryCuentas.update(cuentaSaved);
+			repositoryCuentas.updateCuenta(cuentaSaved);
 
 			assertEquals(3000, repositoryCuentas.findCuenta(cuentaSaved.getId()).getSaldo());
 

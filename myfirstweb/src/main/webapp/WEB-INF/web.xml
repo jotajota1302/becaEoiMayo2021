@@ -5,13 +5,13 @@
 <web-app>
 	<display-name>Mi primer servlet</display-name>
 
- <servlet>
-        <servlet-name>MyFirstServlet</servlet-name>
-        <servlet-class>edu.es.eoi.MyServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MyFirstServlet</servlet-name>
-        <url-pattern>/TEST</url-pattern>
-    </servlet-mapping>
+	<servlet>
+		<servlet-name>MyFirstServlet</servlet-name>
+		<servlet-class>edu.es.eoi.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyFirstServlet</servlet-name>
+		<url-pattern>/TEST</url-pattern>
+	</servlet-mapping>
 
 </web-app>

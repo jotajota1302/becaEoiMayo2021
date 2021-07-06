@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.es.eoi.flixnet.repository.PeliculaRepositoryJPAImpl;
+import com.es.eoi.entities.Cliente;
+import com.es.eoi.entities.Cuenta;
+import com.es.eoi.repositories.ClienteRepositoryJPAImpl;
 
-public class MyServlet extends HttpServlet{
+public class MyServlet extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -17,13 +19,24 @@ public class MyServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		PeliculaRepositoryJPAImpl repo=new PeliculaRepositoryJPAImpl();
-		
-		resp.getOutputStream().print(repo.find(Integer.valueOf(req.getParameter("id"))).getNombre());
-		
+
+		String dni = req.getParameter("dni");
+		String nombre = req.getParameter("nombre");
+
+		ClienteRepositoryJPAImpl repository = new ClienteRepositoryJPAImpl();
+
+		Cliente c = repository.findCliente(dni);
+
+		if (c != null) {
+			if (nombre.equals(c.getNombre())) {
+
+				for (Cuenta cuenta : c.getCuentas()) {
+					resp.getOutputStream().print(cuenta.getSaldo());
+				}
+
+			}
+		}
+
 	}
-	
-	
 
 }
