@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>FlixnetRepositories</artifactId>
-  
+  <version>0.0.2</version>
   
   <dependencies>  
   		<dependency>
