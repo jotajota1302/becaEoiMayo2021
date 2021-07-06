@@ -6,4 +6,15 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>FlixnetServices</artifactId>
+  
+  <dependencies>
+  <dependency>
+  
+    <groupId>edu.es.eoi</groupId>
+    <artifactId>FlixnetRepositories</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  
+  </dependencies>
+  
 </project>
