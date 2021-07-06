@@ -7,8 +7,9 @@
 <title>Mi primera pagina</title>
 </head>
 <body>
-
-<h2>Hello world!!!</h2>
+<%  
+	out.println("<br/><b> Esto es una prueba </b>");
+%>
 
 </body>
 </html>
