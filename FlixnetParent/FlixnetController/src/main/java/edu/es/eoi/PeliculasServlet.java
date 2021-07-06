@@ -19,7 +19,9 @@ public class PeliculasServlet extends HttpServlet{
 
 		PeliculasService service= new PeliculasService();
 		
-		resp.getOutputStream().println(service.findPeliculaById(2).getNombre());
+		int id=Integer.valueOf(req.getParameter("id"));
+		
+		resp.getOutputStream().println(service.findPeliculaById(id).getNombre());
 		
 		
 	}
