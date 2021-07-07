@@ -17,7 +17,7 @@
 		<module>FlixnetRepositories</module>
 		<module>FlixnetServices</module>		
 		<module>FlixnetController</module>
-    	<module>FlixNetJSP</module>
+    	<module>FlixnetJSP</module>
   </modules>
 
 </project>

@@ -7,13 +7,13 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>FlixNetJSP</artifactId>
+  <artifactId>FlixnetJSP</artifactId>
   
   <packaging>war</packaging>
 
-  <name>FlixNetJSP Maven Webapp</name>
+  <name>FlixnetJSP Maven Webapp</name>
   
   <build>
-    <finalName>FlixNetJSP</finalName>  
+    <finalName>FlixnetJSP</finalName>  
   </build>
 </project>

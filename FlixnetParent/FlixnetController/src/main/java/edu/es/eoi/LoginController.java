@@ -23,10 +23,10 @@ public class LoginController extends HttpServlet {
 		//comprobar el usuario y devolver un codigo 200 si ha ido bien y redirigir al menu		
 		
 		if(permitido) {
-			resp.sendRedirect("http://localhost:8090/FlixNetJSP/menu.jsp");			
+			resp.sendRedirect("http://localhost:8090/FlixnetJSP/menu.jsp");			
 			//pasale el nombre del usuario
 		}else {			
-			resp.sendRedirect("http://localhost:8090/FlixNetJSP/login.jsp");
+			resp.sendRedirect("http://localhost:8090/FlixnetJSP/login.jsp");
 		}		
 		
 	}
