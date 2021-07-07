@@ -16,8 +16,7 @@
 			<td>name</td>
 			<td>value</td>
 		</tr>
-
-
+	
 		<%
 			Map map = request.getParameterMap();
 			Object[] keys = map.keySet().toArray();

@@ -14,20 +14,8 @@
 		out.println(hour);
 		out.println("<br/><b> Esto es una prueba </b>");
 	%>
-	<%
-		Map map = request.getParameterMap();
-		Object[] keys = map.keySet().toArray();
-		for (int k = 0; k < keys.length; k++) {
-			String[] pars = request.getParameterValues((String) keys[k]);
-			out.print("<tr><td>" + k + "</td><td>'" + keys[k] + "'</td><td>");
-			for (int j = 0; j < pars.length; j++) {
-				if (j > 0)
-					out.print(", ");
-				out.print("'" + pars[j] + "'");
-			}
-			out.println("</td></tr>");
-		}
-	%>
+	
+
 	
 </body>
 </html>
