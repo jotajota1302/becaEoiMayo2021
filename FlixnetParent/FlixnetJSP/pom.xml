@@ -11,7 +11,7 @@
   
   <packaging>war</packaging>
 
-  <name>FlixnetJSP Maven Webapp</name>
+  <name>FlixnetJSP</name>
   
   <build>
     <finalName>FlixnetJSP</finalName>  

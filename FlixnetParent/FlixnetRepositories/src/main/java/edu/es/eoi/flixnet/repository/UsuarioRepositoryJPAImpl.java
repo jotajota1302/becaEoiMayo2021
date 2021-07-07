@@ -3,6 +3,7 @@ package edu.es.eoi.flixnet.repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import edu.es.eoi.flixnet.entities.Usuario;
 
@@ -58,6 +59,15 @@ public class UsuarioRepositoryJPAImpl {
 	public Usuario find(int id) {
 
 		return em.find(Usuario.class,id);
+	}
+	
+	public Usuario find(String user) {
+
+			String hql = "from Usuario u where u.usuario=:user";			
+			Query query = em.createQuery(hql);
+			query.setParameter("user", user);
+		
+		return (Usuario) query.getResultList().get(0);
 	}
 	
 }
