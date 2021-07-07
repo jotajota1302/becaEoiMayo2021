@@ -8,11 +8,9 @@
 <meta charset="ISO-8859-1">
 <title>Mi primera pagina</title>
 </head>
-<body>
-	<%
-		String hour = Calendar.getInstance().get(Calendar.HOUR) + ":" + Calendar.getInstance().get(Calendar.MINUTE);
-		out.println(hour);
-		out.println("<br/><b> Esto es una prueba </b>");
-	%>	
+<body>	
+	
+	<jsp:forward page="request.html"></jsp:forward>
+	
 </body>
 </html>

@@ -18,11 +18,16 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		UsuarioService service= new UsuarioService();
 		
-		service.login(req.getParameter("user"),req.getParameter("password"));
+		boolean permitido = service.login(req.getParameter("user"),req.getParameter("password"));
 		
-		System.out.println(true);		
+		//comprobar el usuario y devolver un codigo 200 si ha ido bien y redirigir al menu		
 		
-		resp.sendRedirect("http://localhost:8090/FlixNetJSP/menu.jsp");
+		if(permitido) {
+			resp.sendRedirect("http://localhost:8090/FlixNetJSP/menu.jsp");			
+			//pasale el nombre del usuario
+		}else {			
+			resp.sendRedirect("http://localhost:8090/FlixNetJSP/login.jsp");
+		}		
 		
 	}
 	

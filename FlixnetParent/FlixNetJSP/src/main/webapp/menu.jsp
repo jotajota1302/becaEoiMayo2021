@@ -11,10 +11,8 @@
 <body>
 
 	<%	
-	out.println("<br/><b> Menu de la aplicacion </b>");
+	out.println("<br/><b> Menu de la aplicacion </b>");	
 	%>
-	
-
 	
 </body>
 </html>
