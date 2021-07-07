@@ -6,13 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Mi primera pagina</title>
+<title>FLIXNET MENU</title>
 </head>
 <body>
-	<%
-		String hour = Calendar.getInstance().get(Calendar.HOUR) + ":" + Calendar.getInstance().get(Calendar.MINUTE);
-		out.println(hour);
-		out.println("<br/><b> Esto es una prueba </b>");
+
+	<%	
+	out.println("<br/><b> Menu de la aplicacion </b>");
 	%>
 	
 

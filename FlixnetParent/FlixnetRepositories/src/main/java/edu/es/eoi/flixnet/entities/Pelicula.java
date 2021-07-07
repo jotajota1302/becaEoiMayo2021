@@ -35,11 +35,5 @@ public class Pelicula {
 	
 	@Column(name = "genero")
 	private String genero;	
-//	
-//	private List<Categoria> categoria;
-//	
-//	private List<Actor> actores;
-//	
-//	private List<Usuario> usuarios;
-	
+
 }
