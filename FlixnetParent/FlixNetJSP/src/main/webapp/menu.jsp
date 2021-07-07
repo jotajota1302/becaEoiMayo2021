@@ -13,6 +13,9 @@
 		String hour = Calendar.getInstance().get(Calendar.HOUR) + ":" + Calendar.getInstance().get(Calendar.MINUTE);
 		out.println(hour);
 		out.println("<br/><b> Esto es una prueba </b>");
-	%>	
+	%>
+	
+
+	
 </body>
 </html>
