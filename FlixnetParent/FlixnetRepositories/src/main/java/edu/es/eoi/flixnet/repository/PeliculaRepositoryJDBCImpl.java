@@ -28,8 +28,11 @@ public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 			logger.debug("accediendo al fichero de properties");
 			
 			Properties properties = new Properties();
-			properties.load(new FileInputStream(new File("src/main/resources/application.properties")));
-
+			File f=new File("src/main/resources/application.properties");
+			FileInputStream fis = new FileInputStream(f);
+			properties.load(fis);
+			fis.close();
+			
 			return DriverManager.getConnection(
 					properties.getProperty("database.url").concat("/")
 							.concat(properties.getProperty("database.schema")),
@@ -37,7 +40,6 @@ public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 		} else {
 			
 			return connection;
-
 		}
 
 	}
@@ -45,7 +47,7 @@ public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 	@Override
 	public List<Pelicula> buscarPorActor(Actor actor) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<>();
 	}
 
 	@Override
