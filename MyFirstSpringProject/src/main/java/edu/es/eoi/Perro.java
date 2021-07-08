@@ -1,6 +1,8 @@
 package edu.es.eoi;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Perro {
 	
 	private String raza;
@@ -12,12 +14,6 @@ public class Perro {
 	public void setRaza(String raza) {
 		this.raza = raza;
 	}
-
-	public Perro(String raza) {
-		super();
-		this.raza = raza;
-	}
-	
 	
 
 }
