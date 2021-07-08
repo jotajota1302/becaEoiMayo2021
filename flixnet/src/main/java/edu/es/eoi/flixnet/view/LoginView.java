@@ -1,5 +1,7 @@
 package edu.es.eoi.flixnet.view;
 
+import java.util.Scanner;
+
 import edu.es.eoi.flixnet.controller.UsuarioController;
 
 public class LoginView {
@@ -8,19 +10,17 @@ public class LoginView {
 	
 	public static void printLogin() {
 		
-//		System.out.println("Introduce usuario: ");		
-//		@SuppressWarnings("resource")
-//		Scanner scan= new Scanner(System.in);
-//		
-//		String user=scan.nextLine();	
-//				
-//		System.out.println("Introduce contraseña:");
-//		scan= new Scanner(System.in);	
-//		
-//		String pw=scan.nextLine();	
+		System.out.println("Introduce usuario: ");		
+		@SuppressWarnings("resource")
+		Scanner scan= new Scanner(System.in);
 		
-		String user="pepe";
-		String pw="123456";
+		String user=scan.nextLine();	
+				
+		System.out.println("Introduce contraseña:");
+		scan= new Scanner(System.in);	
+		
+		String pw=scan.nextLine();	
+	
 		
 		controller.login(user, pw);
 		
