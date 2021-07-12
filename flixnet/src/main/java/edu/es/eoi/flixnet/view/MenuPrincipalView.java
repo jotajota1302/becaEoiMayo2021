@@ -2,7 +2,6 @@ package edu.es.eoi.flixnet.view;
 
 import java.util.Scanner;
 
-import edu.es.eoi.flixnet.controller.PeliculaController;
 import edu.es.eoi.flixnet.controller.UsuarioController;
 
 public class MenuPrincipalView {
@@ -21,10 +20,10 @@ public class MenuPrincipalView {
 		
 		switch (opcion) {
 		case 1:	
-			PeliculaController.buscarPeliculasMenu();;
+//			PeliculaController.buscarPeliculasMenu();;
 			break;
 		case 2:	
-			PeliculaController.generarExcel();
+//			PeliculaController.generarExcel();
 			break;
 		default:
 			UsuarioController.logOut();

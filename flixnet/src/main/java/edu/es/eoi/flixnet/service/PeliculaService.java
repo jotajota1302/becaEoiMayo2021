@@ -17,15 +17,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import edu.es.eoi.flixnet.entities.Actor;
 import edu.es.eoi.flixnet.entities.Pelicula;
 import edu.es.eoi.flixnet.repository.PeliculaRepository;
-import edu.es.eoi.flixnet.repository.PeliculaRepositoryJDBCImpl;
+import edu.es.eoi.flixnet.repository.PeliculaRepositoryJPAImpl;
 
 public class PeliculaService {
 
 	private static Logger logger= Logger.getLogger(PeliculaService.class);		
 	
-//	private PeliculaRepository repository = new PeliculaRepositoryMemoryImpl();
-	
-	private PeliculaRepository repository = new PeliculaRepositoryJDBCImpl();
+	private PeliculaRepository repository = new PeliculaRepositoryJPAImpl();
+			
 
 	public List<Pelicula> buscarPorActor(Actor actor) {
 

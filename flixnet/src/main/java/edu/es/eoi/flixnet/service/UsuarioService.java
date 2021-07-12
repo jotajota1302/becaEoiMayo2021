@@ -1,16 +1,19 @@
 package edu.es.eoi.flixnet.service;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import edu.es.eoi.flixnet.entities.Usuario;
 import edu.es.eoi.flixnet.repository.UsuarioRepository;
-import edu.es.eoi.flixnet.repository.UsuarioRepositoryJDBCImpl;
 
+@Service
 public class UsuarioService {
 
 	private static Logger logger= Logger.getLogger(UsuarioService.class);
 	
-	private UsuarioRepository repository = new UsuarioRepositoryJDBCImpl();
+	@Autowired
+	private UsuarioRepository repository;
 
 	public boolean comprueba(Usuario usuario) throws Exception {
 		
