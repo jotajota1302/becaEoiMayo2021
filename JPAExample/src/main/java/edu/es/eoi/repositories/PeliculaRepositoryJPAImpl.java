@@ -1,4 +1,4 @@
-package com.es.eoi.repositories;
+package edu.es.eoi.repositories;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.es.eoi.entities.Pelicula;
+import edu.es.eoi.entities.Pelicula;
 
 public class PeliculaRepositoryJPAImpl {
 

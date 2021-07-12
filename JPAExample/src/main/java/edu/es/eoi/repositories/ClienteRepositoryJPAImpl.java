@@ -1,24 +1,24 @@
-package com.es.eoi.repositories;
+package edu.es.eoi.repositories;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.es.eoi.entities.Banco;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public class BancoRepositoryJPAImpl {
+import edu.es.eoi.entities.Cliente;
 
+
+@Repository
+public class ClienteRepositoryJPAImpl implements ClienteRepository {
+	
+	@Autowired
 	public EntityManager em;
-
-	public BancoRepositoryJPAImpl() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("BancoPersistenceUnit");
-		em = factory.createEntityManager();
-	}
-
-	public Banco saveBanco(Banco cliente) {
+	
+	@Override
+	public Cliente saveCliente(Cliente cliente) {
 
 		try {
 			em.getTransaction().begin();
@@ -33,7 +33,8 @@ public class BancoRepositoryJPAImpl {
 		return cliente;
 	}
 
-	public Banco updateBanco(Banco cliente) {
+	@Override
+	public Cliente updateCliente(Cliente cliente) {
 
 		try {
 			em.getTransaction().begin();
@@ -46,7 +47,8 @@ public class BancoRepositoryJPAImpl {
 		return cliente;
 	}
 
-	public void removeBanco(Banco cliente) {
+	@Override
+	public void removeCliente(Cliente cliente) {
 
 		try {
 			em.getTransaction().begin();
@@ -57,21 +59,22 @@ public class BancoRepositoryJPAImpl {
 		}
 	}
 
-	public Banco findBanco(int id) {
+	@Override
+	public Cliente findCliente(String dni) {
 
-		return em.find(Banco.class, id);
+		return em.find(Cliente.class, dni);
 
 	}
-	
-	@SuppressWarnings("unchecked")
-	public List<Banco> findAll() {
 
-		String hql = "from Banco";
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Cliente> findAll() {
+
+		String hql = "from Cliente";
 		Query query = em.createQuery(hql);
 
 		return query.getResultList();
 
 	}
-	
 
 }

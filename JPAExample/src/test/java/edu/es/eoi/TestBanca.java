@@ -10,16 +10,17 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 
-import com.es.eoi.entities.Banco;
-import com.es.eoi.entities.Cliente;
-import com.es.eoi.entities.Cuenta;
-import com.es.eoi.repositories.BancoRepositoryJPAImpl;
-import com.es.eoi.repositories.ClienteRepositoryJPAImpl;
-import com.es.eoi.repositories.CuentaRepositoryJPAImpl;
+import edu.es.eoi.entities.Banco;
+import edu.es.eoi.entities.Cliente;
+import edu.es.eoi.entities.Cuenta;
+import edu.es.eoi.repositories.BancoRepositoryJPAImpl;
+import edu.es.eoi.repositories.ClienteRepository;
+import edu.es.eoi.repositories.ClienteRepositoryJPAImpl;
+import edu.es.eoi.repositories.CuentaRepositoryJPAImpl;
 
 public class TestBanca {
 
-	ClienteRepositoryJPAImpl repositoryClientes = new ClienteRepositoryJPAImpl();
+	ClienteRepository repositoryClientes = new ClienteRepositoryJPAImpl();
 
 	BancoRepositoryJPAImpl repositoryBancos = new BancoRepositoryJPAImpl();
 

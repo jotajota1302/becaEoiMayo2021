@@ -7,9 +7,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.es.eoi.entities.Address;
-import com.es.eoi.entities.Person;
-import com.es.eoi.repositories.PersonRepository;
+import edu.es.eoi.entities.Address;
+import edu.es.eoi.entities.Person;
+import edu.es.eoi.repositories.PersonRepository;
 
 public class TestPersonRepository {
 

@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 
-import com.es.eoi.entities.Pelicula;
-import com.es.eoi.repositories.PeliculaRepositoryJPAImpl;
+import edu.es.eoi.entities.Pelicula;
+import edu.es.eoi.repositories.PeliculaRepositoryJPAImpl;
 
 public class TestPeliculaRepository {
 

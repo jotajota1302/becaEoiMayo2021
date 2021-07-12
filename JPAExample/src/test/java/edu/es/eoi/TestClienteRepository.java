@@ -7,13 +7,14 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.es.eoi.entities.Cliente;
-import com.es.eoi.entities.Cuenta;
-import com.es.eoi.repositories.ClienteRepositoryJPAImpl;
+import edu.es.eoi.entities.Cliente;
+import edu.es.eoi.entities.Cuenta;
+import edu.es.eoi.repositories.ClienteRepository;
+import edu.es.eoi.repositories.ClienteRepositoryJPAImpl;
 
 public class TestClienteRepository {
 
-	ClienteRepositoryJPAImpl repository= new ClienteRepositoryJPAImpl();
+	ClienteRepository repository= new ClienteRepositoryJPAImpl();
 	List<Integer> ids=new ArrayList<Integer>();	 
 
 	@Test

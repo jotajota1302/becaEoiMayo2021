@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.es.eoi.entities.Cliente;
-import com.es.eoi.entities.Cuenta;
-import com.es.eoi.repositories.ClienteRepositoryJPAImpl;
+import edu.es.eoi.entities.Cliente;
+import edu.es.eoi.entities.Cuenta;
+import edu.es.eoi.repositories.ClienteRepository;
+import edu.es.eoi.repositories.ClienteRepositoryJPAImpl;
 
 public class MyServlet extends HttpServlet {
 	/**
@@ -23,7 +24,7 @@ public class MyServlet extends HttpServlet {
 		String dni = req.getParameter("dni");
 		String nombre = req.getParameter("nombre");
 
-		ClienteRepositoryJPAImpl repository = new ClienteRepositoryJPAImpl();
+		ClienteRepository repository = new ClienteRepositoryJPAImpl();
 
 		Cliente c = repository.findCliente(dni);
 

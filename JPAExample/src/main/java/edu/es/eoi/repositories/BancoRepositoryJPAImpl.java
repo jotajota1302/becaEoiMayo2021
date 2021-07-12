@@ -1,4 +1,4 @@
-package com.es.eoi.repositories;
+package edu.es.eoi.repositories;
 
 import java.util.List;
 
@@ -7,18 +7,18 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.es.eoi.entities.Cliente;
+import edu.es.eoi.entities.Banco;
 
-public class ClienteRepositoryJPAImpl {
+public class BancoRepositoryJPAImpl {
 
 	public EntityManager em;
 
-	public ClienteRepositoryJPAImpl() {
+	public BancoRepositoryJPAImpl() {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("BancoPersistenceUnit");
 		em = factory.createEntityManager();
 	}
 
-	public Cliente saveCliente(Cliente cliente) {
+	public Banco saveBanco(Banco cliente) {
 
 		try {
 			em.getTransaction().begin();
@@ -33,7 +33,7 @@ public class ClienteRepositoryJPAImpl {
 		return cliente;
 	}
 
-	public Cliente updateCliente(Cliente cliente) {
+	public Banco updateBanco(Banco cliente) {
 
 		try {
 			em.getTransaction().begin();
@@ -46,7 +46,7 @@ public class ClienteRepositoryJPAImpl {
 		return cliente;
 	}
 
-	public void removeCliente(Cliente cliente) {
+	public void removeBanco(Banco cliente) {
 
 		try {
 			em.getTransaction().begin();
@@ -57,20 +57,21 @@ public class ClienteRepositoryJPAImpl {
 		}
 	}
 
-	public Cliente findCliente(String dni) {
+	public Banco findBanco(int id) {
 
-		return em.find(Cliente.class, dni);
+		return em.find(Banco.class, id);
 
 	}
-
+	
 	@SuppressWarnings("unchecked")
-	public List<Cliente> findAll() {
+	public List<Banco> findAll() {
 
-		String hql = "from Cliente";
+		String hql = "from Banco";
 		Query query = em.createQuery(hql);
 
 		return query.getResultList();
 
 	}
+	
 
 }

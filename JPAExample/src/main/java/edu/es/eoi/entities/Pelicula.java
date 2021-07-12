@@ -1,4 +1,4 @@
-package com.es.eoi.entities;
+package edu.es.eoi.entities;
 
 import java.util.Date;
 
