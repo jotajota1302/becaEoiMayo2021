@@ -3,8 +3,11 @@ package edu.es.eoi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,7 +17,7 @@ public class ClienteController {
 	HelloWorldService service;
 	
 	@RequestMapping(value ="/cliente",method = RequestMethod.GET)
-	public String saluda(String parametro) {
+	public String findClientes() {
 		
 		//return todos los clientes
 		
@@ -22,10 +25,21 @@ public class ClienteController {
 		
 	}
 	
-	@RequestMapping(value = "/saluda2",method = RequestMethod.GET)
-	public ResponseEntity<String> saluda2() {
+	@RequestMapping(value = "/cliente/{id}",method = RequestMethod.GET)
+	public ResponseEntity<String> findCliente(@PathVariable String id) {		
 		
-		return new ResponseEntity<String>(service.saluda(),HttpStatus.OK);
+		//tengo el id y recupero 1 cliente
+		
+		return null;	
+		
+	}
+	
+	@RequestMapping(value = "/cliente",method = RequestMethod.POST)
+	public ResponseEntity<String> createCliente(@RequestBody String nombre,@RequestBody String dni) {		
+		
+		//tengo el nombre y dni
+		
+		return null;	
 		
 	}
 	
