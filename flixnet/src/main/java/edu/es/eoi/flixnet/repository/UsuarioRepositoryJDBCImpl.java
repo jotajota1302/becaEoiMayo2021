@@ -9,9 +9,11 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.flixnet.entities.Usuario;
 
+@Repository
 public class UsuarioRepositoryJDBCImpl implements UsuarioRepository {
 
 	private static Logger logger = Logger.getLogger(UsuarioRepositoryJDBCImpl.class);

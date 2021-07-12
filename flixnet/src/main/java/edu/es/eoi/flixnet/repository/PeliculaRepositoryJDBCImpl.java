@@ -11,10 +11,12 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.flixnet.entities.Actor;
 import edu.es.eoi.flixnet.entities.Pelicula;
 
+@Repository
 public class PeliculaRepositoryJDBCImpl implements PeliculaRepository {
 
 	private static Logger logger= Logger.getLogger(PeliculaRepositoryJDBCImpl.class);

@@ -1,17 +1,21 @@
 package edu.es.eoi.flixnet.controller;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import edu.es.eoi.flixnet.entities.Usuario;
 import edu.es.eoi.flixnet.service.UsuarioService;
 import edu.es.eoi.flixnet.view.LoginView;
 import edu.es.eoi.flixnet.view.MenuPrincipalView;
 
+@Controller
 public class UsuarioController {
 
 	private static Logger logger = Logger.getLogger(UsuarioController.class);
 
-	private UsuarioService usuarioService = new UsuarioService();	
+	@Autowired
+	private UsuarioService usuarioService;
 
 	public void login(String nombre, String password) {
 

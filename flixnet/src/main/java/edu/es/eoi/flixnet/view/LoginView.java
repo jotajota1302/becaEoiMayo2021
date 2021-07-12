@@ -2,13 +2,15 @@ package edu.es.eoi.flixnet.view;
 
 import java.util.Scanner;
 
+import edu.es.eoi.flixnet.MainApp;
 import edu.es.eoi.flixnet.controller.UsuarioController;
 
+
 public class LoginView {
-	
-	public static UsuarioController controller= new UsuarioController();
-	
+		
 	public static void printLogin() {
+		
+		UsuarioController controller=MainApp.context.getBean(UsuarioController.class);
 		
 		System.out.println("Introduce usuario: ");		
 		@SuppressWarnings("resource")
