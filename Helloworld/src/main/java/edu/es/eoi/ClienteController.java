@@ -16,7 +16,7 @@ public class ClienteController {
 	@Autowired
 	HelloWorldService service;
 	
-	@RequestMapping(value ="/cliente",method = RequestMethod.GET)
+	@RequestMapping(value ="/clientes",method = RequestMethod.GET)
 	public String findClientes() {
 		
 		//return todos los clientes
@@ -25,7 +25,7 @@ public class ClienteController {
 		
 	}
 	
-	@RequestMapping(value = "/cliente/{id}",method = RequestMethod.GET)
+	@RequestMapping(value = "/clientes/{id}",method = RequestMethod.GET)
 	public ResponseEntity<String> findCliente(@PathVariable String id) {		
 		
 		//tengo el id y recupero 1 cliente
@@ -34,7 +34,7 @@ public class ClienteController {
 		
 	}
 	
-	@RequestMapping(value = "/cliente",method = RequestMethod.POST)
+	@RequestMapping(value = "/clientes",method = RequestMethod.POST)
 	public ResponseEntity<String> createCliente(@RequestBody String nombre,@RequestBody String dni) {		
 		
 		//tengo el nombre y dni
