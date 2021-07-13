@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.es.eoi.dtos.ClienteDto;
 import edu.es.eoi.entities.Cliente;
 import edu.es.eoi.services.ClienteService;
 
@@ -22,9 +23,9 @@ public class ClienteController {
 	ClienteService service;
 
 	@GetMapping("/clientes/{dni}")
-	public ResponseEntity<Cliente> findCliente(@PathVariable String dni) {
+	public ResponseEntity<ClienteDto> findCliente(@PathVariable String dni) {
 
-		return new ResponseEntity<Cliente>(service.findCliente(dni), HttpStatus.OK);
+		return new ResponseEntity<ClienteDto>(service.findCliente(dni), HttpStatus.OK);
 
 	}
 
