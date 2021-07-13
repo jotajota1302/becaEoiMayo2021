@@ -34,6 +34,20 @@ public class CuentasController {
 		return new ResponseEntity<List<Cuenta>>(service.findAll(), HttpStatus.OK);
 
 	}
+	
+	@GetMapping("/cuentas/{dni}/cliente")
+	public ResponseEntity<List<Cuenta>> findAllCuentasByCliente(@PathVariable String dni) {
+
+		return new ResponseEntity<List<Cuenta>>(service.findAllByCliente(dni), HttpStatus.OK);
+
+	}
+	
+	@GetMapping("/cuentas/{id}/banco")
+	public ResponseEntity<List<Cuenta>> findAllCuentasByBanco(@PathVariable Integer id) {
+
+		return new ResponseEntity<List<Cuenta>>(service.findAllByBancoId(id), HttpStatus.OK);
+
+	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/cuentas")
 	public ResponseEntity<?> createCuenta(@RequestParam Integer id, @RequestParam Double saldo) {
