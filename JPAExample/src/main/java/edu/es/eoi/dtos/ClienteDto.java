@@ -15,5 +15,5 @@ public class ClienteDto {
 	private String direccion;	
 	
 	private Double saldoTotal;
-
+	
 }
