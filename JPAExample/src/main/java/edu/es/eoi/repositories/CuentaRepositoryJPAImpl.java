@@ -3,21 +3,20 @@ package edu.es.eoi.repositories;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.entities.Cuenta;
 
-public class CuentaRepositoryJPAImpl {
+@Repository	
+public class CuentaRepositoryJPAImpl implements CuentaRepository {
 
-	public EntityManager em;
-
-	public CuentaRepositoryJPAImpl() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("BancoPersistenceUnit");
-		em = factory.createEntityManager();
-	}
-
+	@Autowired 	
+	public EntityManager em;	
+	
+	@Override
 	public Cuenta saveCuenta(Cuenta cuenta) {
 
 		try {
@@ -33,6 +32,7 @@ public class CuentaRepositoryJPAImpl {
 		return cuenta;
 	}
 
+	@Override
 	public Cuenta updateCuenta(Cuenta cuenta) {
 
 		try {
@@ -46,6 +46,7 @@ public class CuentaRepositoryJPAImpl {
 		return cuenta;
 	}
 
+	@Override
 	public void removeCuenta(Cuenta cuenta) {
 
 		try {
@@ -57,12 +58,25 @@ public class CuentaRepositoryJPAImpl {
 		}
 	}
 
+	@Override
 	public Cuenta findCuenta(int id) {
 
 		return em.find(Cuenta.class, id);
 
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Cuenta> findAll(){
+		
+		String hql = "from Cuenta";
+		Query query = em.createQuery(hql);		
 
+		return query.getResultList();		
+		
+	}
+
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Cuenta> findAllByBancoId(int idBanco){
 		
@@ -73,5 +87,19 @@ public class CuentaRepositoryJPAImpl {
 		return query.getResultList();		
 		
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Cuenta> findAllByCliente(String dni){
+		
+		String hql = "from Cuenta c where c.cliente.dni = :param";
+		Query query = em.createQuery(hql);
+		query.setParameter("param", dni);
+
+		return query.getResultList();		
+		
+	}
+	
+	
 
 }

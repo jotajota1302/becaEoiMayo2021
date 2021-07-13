@@ -13,18 +13,20 @@ import org.junit.Test;
 import edu.es.eoi.entities.Banco;
 import edu.es.eoi.entities.Cliente;
 import edu.es.eoi.entities.Cuenta;
+import edu.es.eoi.repositories.BancoRepository;
 import edu.es.eoi.repositories.BancoRepositoryJPAImpl;
 import edu.es.eoi.repositories.ClienteRepository;
 import edu.es.eoi.repositories.ClienteRepositoryJPAImpl;
+import edu.es.eoi.repositories.CuentaRepository;
 import edu.es.eoi.repositories.CuentaRepositoryJPAImpl;
 
 public class TestBanca {
 
 	ClienteRepository repositoryClientes = new ClienteRepositoryJPAImpl();
 
-	BancoRepositoryJPAImpl repositoryBancos = new BancoRepositoryJPAImpl();
+	BancoRepository repositoryBancos = new BancoRepositoryJPAImpl();
 
-	CuentaRepositoryJPAImpl repositoryCuentas = new CuentaRepositoryJPAImpl();
+	CuentaRepository repositoryCuentas = new CuentaRepositoryJPAImpl();
 
 	List<Integer> bancoIds = new ArrayList<Integer>();
 	List<String> clienteIds = new ArrayList<String>();

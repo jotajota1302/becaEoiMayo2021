@@ -3,21 +3,20 @@ package edu.es.eoi.repositories;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.entities.Banco;
 
-public class BancoRepositoryJPAImpl {
+@Repository
+public class BancoRepositoryJPAImpl implements BancoRepository {
 
+	@Autowired
 	public EntityManager em;
 
-	public BancoRepositoryJPAImpl() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("BancoPersistenceUnit");
-		em = factory.createEntityManager();
-	}
-
+	@Override
 	public Banco saveBanco(Banco cliente) {
 
 		try {
@@ -33,6 +32,7 @@ public class BancoRepositoryJPAImpl {
 		return cliente;
 	}
 
+	@Override
 	public Banco updateBanco(Banco cliente) {
 
 		try {
@@ -46,6 +46,7 @@ public class BancoRepositoryJPAImpl {
 		return cliente;
 	}
 
+	@Override
 	public void removeBanco(Banco cliente) {
 
 		try {
@@ -57,12 +58,14 @@ public class BancoRepositoryJPAImpl {
 		}
 	}
 
+	@Override
 	public Banco findBanco(int id) {
 
 		return em.find(Banco.class, id);
 
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Banco> findAll() {
 

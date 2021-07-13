@@ -43,7 +43,7 @@ public class ClienteController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);		
 		}
 		
-		if (service.findCliente(dni) != null) {
+		if (service.findCliente(dni) == null) {
 
 			return new ResponseEntity<String>(HttpStatus.NOT_ACCEPTABLE);
 			
@@ -63,7 +63,7 @@ public class ClienteController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);		
 		}
 		
-		if (service.findCliente(dni) != null) {
+		if (service.findCliente(dni) == null) {
 
 			return new ResponseEntity<String>(HttpStatus.NOT_ACCEPTABLE);
 			

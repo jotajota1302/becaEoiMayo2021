@@ -10,7 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +21,6 @@ import lombok.ToString;
 @Table(name = "CUENTAS")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Cuenta {
@@ -31,14 +31,24 @@ public class Cuenta {
 	private int id;
 	
 	@Column(name = "saldo")
-	private int saldo;
+	private double saldo;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
 	private Banco banco;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DNI", referencedColumnName = "DNI")
 	private Cliente cliente;
+
+	public Cuenta(int id, double saldo) {
+		super();
+		this.id = id;
+		this.saldo = saldo;
+	}
+	
+	
 
 }

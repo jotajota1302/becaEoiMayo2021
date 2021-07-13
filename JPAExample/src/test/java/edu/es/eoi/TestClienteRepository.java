@@ -2,20 +2,23 @@ package edu.es.eoi;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
 import edu.es.eoi.entities.Cliente;
 import edu.es.eoi.entities.Cuenta;
 import edu.es.eoi.repositories.ClienteRepository;
-import edu.es.eoi.repositories.ClienteRepositoryJPAImpl;
 
+@SpringBootTest
+@ContextConfiguration(classes = MainApp.class)
 public class TestClienteRepository {
 
-	ClienteRepository repository= new ClienteRepositoryJPAImpl();
-	List<Integer> ids=new ArrayList<Integer>();	 
+	@Autowired
+	ClienteRepository repository;
 
 	@Test
 	public void testFindCliente() {	
