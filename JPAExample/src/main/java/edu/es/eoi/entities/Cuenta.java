@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,13 +30,11 @@ public class Cuenta {
 	
 	@Column(name = "saldo")
 	private double saldo;
-	
-	@JsonIgnore
+		
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
 	private Banco banco;
-	
-	@JsonIgnore
+		
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DNI", referencedColumnName = "DNI")
 	private Cliente cliente;

@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,8 +31,7 @@ public class Cliente {
 	
 	@Column(name = "direccion")
 	private String direccion;
-	
-	@JsonIgnore
+		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
 	private List<Cuenta> cuentas;
 

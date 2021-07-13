@@ -1,4 +1,4 @@
-package edu.es.eoi.service;
+package edu.es.eoi.services;
 
 import java.util.List;
 

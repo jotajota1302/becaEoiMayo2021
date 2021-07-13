@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,8 +34,7 @@ public class Banco {
 	
 	@Column(name = "ciudad")
 	private String ciudad;
-	
-	@JsonIgnore
+		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
 	private List<Cuenta> cuentas;
 

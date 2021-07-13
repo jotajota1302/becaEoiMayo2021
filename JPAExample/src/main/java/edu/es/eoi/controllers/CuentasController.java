@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.es.eoi.entities.Cuenta;
-import edu.es.eoi.service.CuentaService;
+import edu.es.eoi.services.CuentaService;
 
 @RestController
 public class CuentasController {
