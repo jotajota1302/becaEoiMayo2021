@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.es.eoi.dtos.ClienteDto;
-import edu.es.eoi.entities.Cliente;
 import edu.es.eoi.services.ClienteService;
 
 @RestController
@@ -30,9 +29,9 @@ public class ClienteController {
 	}
 
 	@GetMapping("/clientes")
-	public ResponseEntity<List<Cliente>> findAllClientes() {
+	public ResponseEntity<List<ClienteDto>> findAllClientes() {
 
-		return new ResponseEntity<List<Cliente>>(service.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<ClienteDto>>(service.findAll(), HttpStatus.OK);
 
 	}
 
@@ -44,13 +43,13 @@ public class ClienteController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);		
 		}
 		
-		if (service.findCliente(dni) == null) {
+		if (service.findCliente(dni) != null) {
 
 			return new ResponseEntity<String>(HttpStatus.NOT_ACCEPTABLE);
 			
 		} else {
 			
-			service.saveCliente(new Cliente(dni, nombre, direccion));
+			service.saveCliente(ClienteDto.builder().dni(dni).nombre(nombre).direccion(direccion).build());
 
 			return new ResponseEntity<String>(HttpStatus.CREATED);
 		}
@@ -70,7 +69,7 @@ public class ClienteController {
 			
 		} else {
 			
-			service.updateCliente(new Cliente(dni, nombre, direccion));
+			service.updateCliente(ClienteDto.builder().dni(dni).nombre(nombre).direccion(direccion).build());
 
 			return new ResponseEntity<String>(HttpStatus.CREATED);
 		}
@@ -84,7 +83,7 @@ public class ClienteController {
 		if(null==dni||dni.isEmpty()) {			
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);		
 		}		
-			service.removeCliente(new Cliente(dni,"",""));
+			service.removeCliente(ClienteDto.builder().dni(dni).build());
 
 		return new ResponseEntity<String>(HttpStatus.ACCEPTED);
 	

@@ -1,7 +1,9 @@
 package edu.es.eoi.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,46 +18,60 @@ public class ClienteService {
 	@Autowired
 	ClienteRepository repository;
 
-	public Cliente saveCliente(Cliente cliente) {
+	@Autowired
+	ModelMapper mapper;
 
-		return this.repository.saveCliente(cliente);
+	public ClienteDto saveCliente(ClienteDto cliente) {
+
+		this.repository.saveCliente(mapper.map(cliente, Cliente.class));
+
+		return cliente;
 
 	}
 
-	public Cliente updateCliente(Cliente cliente) {
+	public ClienteDto updateCliente(ClienteDto cliente) {
 
-		return this.repository.updateCliente(cliente);
+		this.repository.updateCliente(mapper.map(cliente, Cliente.class));
+
+		return cliente;
 
 	}
 
-	public void removeCliente(Cliente cliente) {
+	public void removeCliente(ClienteDto cliente) {
 
-		this.repository.removeCliente(cliente);
+		this.repository.removeCliente(mapper.map(cliente, Cliente.class));
 	}
 
 	public ClienteDto findCliente(String dni) {
 
 		Cliente cliente = this.repository.findCliente(dni);
-		
-		double saldoTotal=0.0;
-		
-		for (Cuenta cuenta : cliente.getCuentas()) {
-			saldoTotal=saldoTotal+cuenta.getSaldo();
-		}	
 
-		cliente.setDni(cliente.getDni().substring(0, 4).concat("####"));
+		double saldoTotal = 0.0;
 
-		return ClienteDto.builder()
-						 .dni(cliente.getDni())
-						 .nombre(cliente.getNombre())
-						 .direccion(cliente.getDireccion())
-						 .saldoTotal(saldoTotal)
-						 .build();
+		if (cliente != null) {
+
+			for (Cuenta cuenta : cliente.getCuentas()) {
+				saldoTotal = saldoTotal + cuenta.getSaldo();
+				ClienteDto dto = mapper.map(cliente, ClienteDto.class);
+				dto.setSaldoTotal(saldoTotal);
+				return dto;
+			}
+
+		}
+
+		return null;
+	
 	}
 
-	public List<Cliente> findAll() {
+	public List<ClienteDto> findAll() {
 
-		return this.repository.findAll();
+		List<ClienteDto> result = new ArrayList<ClienteDto>();
+
+		for (Cliente temp : this.repository.findAll()) {
+			result.add(mapper.map(temp, ClienteDto.class));
+		}
+
+		return result;
 
 	}
 
