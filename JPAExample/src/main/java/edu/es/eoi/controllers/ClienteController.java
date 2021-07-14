@@ -35,6 +35,13 @@ public class ClienteController {
 		return new ResponseEntity<List<ClienteDto>>(service.findAll(), HttpStatus.OK);
 
 	}
+	
+	@GetMapping("/clientes/nombre/{nombre}")
+	public ResponseEntity<List<ClienteDto>> findAllClientesByNombre(@PathVariable String nombre) {
+
+		return new ResponseEntity<List<ClienteDto>>(service.findAllByNombre(nombre), HttpStatus.OK);
+
+	}
 
 	@PostMapping("/clientes")
 	public ResponseEntity<ClienteDto> createCliente(@RequestBody ClienteDto cliente) {

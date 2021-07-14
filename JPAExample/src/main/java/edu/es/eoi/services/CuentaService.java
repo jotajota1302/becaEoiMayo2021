@@ -56,12 +56,12 @@ public class CuentaService {
 
 	public List<CuentaDto> findAllByBancoId(int idBanco){
 	
-		return null;
+		return this.repository.findAllByBancoId(idBanco).stream().map(c-> mapper.map(c, CuentaDto.class)).collect(Collectors.toList());
 	}
 		
 	public List<CuentaDto> findAllByCliente(String dni){
 		
-		return null;
+		return this.repository.findAllByClienteDni(dni).stream().map(c-> mapper.map(c, CuentaDto.class)).collect(Collectors.toList());
 		
 	}
 

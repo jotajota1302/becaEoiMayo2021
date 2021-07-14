@@ -74,5 +74,17 @@ public class ClienteService {
 		return result;
 
 	}
+	
+	public List<ClienteDto> findAllByNombre(String nombre) {
+
+		List<ClienteDto> result = new ArrayList<ClienteDto>();
+
+		for (Cliente temp : this.repository.findByNombreStartingWith(nombre)) {
+			result.add(mapper.map(temp, ClienteDto.class));
+		}
+
+		return result;
+
+	}
 
 }
