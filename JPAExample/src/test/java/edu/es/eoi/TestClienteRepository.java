@@ -18,17 +18,17 @@ import edu.es.eoi.repositories.ClienteRepository;
 public class TestClienteRepository {
 
 	@Autowired
-	ClienteRepository repository;
+	ClienteRepository repository;	
 
 	@Test
 	public void testFindCliente() {	
 		
-		Cliente cliente=repository.findCliente("03765983S");
+		Cliente cliente=repository.findById("03765983S").get();
 		
 		List<Cuenta> cuentas=cliente.getCuentas();
 		
 		assertEquals("juan",cliente.getNombre());
-		assertEquals(1,cuentas.size());
+		assertEquals(1,cuentas.size());		
 		
 	}
 	

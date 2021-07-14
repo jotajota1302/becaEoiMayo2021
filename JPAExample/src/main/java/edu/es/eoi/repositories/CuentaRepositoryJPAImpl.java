@@ -2,62 +2,16 @@ package edu.es.eoi.repositories;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.entities.Cuenta;
 
 @Repository	
-public class CuentaRepositoryJPAImpl implements CuentaRepository {
+public class CuentaRepositoryJPAImpl extends MyAbstractCRUD<Cuenta,Integer> implements CuentaRepository {
 
-	@Autowired 	
-	public EntityManager em;	
 	
-	@Override
-	public Cuenta saveCuenta(Cuenta cuenta) {
-
-		try {
-			em.getTransaction().begin();
-			em.persist(cuenta);
-			em.getTransaction().commit();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			em.getTransaction().rollback();
-		}
-
-		return cuenta;
-	}
-
-	@Override
-	public Cuenta updateCuenta(Cuenta cuenta) {
-
-		try {
-			em.getTransaction().begin();
-			em.merge(cuenta);
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			em.getTransaction().rollback();
-		}
-
-		return cuenta;
-	}
-
-	@Override
-	public void removeCuenta(Cuenta cuenta) {
-
-		try {
-			em.getTransaction().begin();
-			em.remove(cuenta);
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			em.getTransaction().rollback();
-		}
-	}
-
 	@Override
 	public Cuenta findCuenta(int id) {
 
@@ -97,6 +51,23 @@ public class CuentaRepositoryJPAImpl implements CuentaRepository {
 		query.setParameter("param", dni);
 
 		return query.getResultList();		
+		
+	}
+
+	@Override
+	public Cuenta saveCuenta(Cuenta cuenta) {	
+		return super.save(cuenta);
+	}
+
+	@Override
+	public Cuenta updateCuenta(Cuenta cuenta) {
+	
+		return super.update(cuenta);
+	}
+
+	@Override
+	public void removeCuenta(Cuenta cuenta) {
+		super.remove(cuenta);
 		
 	}
 	

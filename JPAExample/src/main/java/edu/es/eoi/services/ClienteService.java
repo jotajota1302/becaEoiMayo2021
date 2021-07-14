@@ -22,8 +22,8 @@ public class ClienteService {
 	ModelMapper mapper;
 
 	public ClienteDto saveCliente(ClienteDto cliente) {
-
-		this.repository.saveCliente(mapper.map(cliente, Cliente.class));
+		
+		this.repository.save(mapper.map(cliente, Cliente.class));
 
 		return cliente;
 
@@ -31,7 +31,7 @@ public class ClienteService {
 
 	public ClienteDto updateCliente(ClienteDto cliente) {
 
-		this.repository.updateCliente(mapper.map(cliente, Cliente.class));
+		this.repository.save(mapper.map(cliente, Cliente.class));
 
 		return cliente;
 
@@ -39,12 +39,12 @@ public class ClienteService {
 
 	public void removeCliente(ClienteDto cliente) {
 
-		this.repository.removeCliente(mapper.map(cliente, Cliente.class));
+		this.repository.delete(mapper.map(cliente, Cliente.class));
 	}
 
 	public ClienteDto findCliente(String dni) {
 
-		Cliente cliente = this.repository.findCliente(dni);
+		Cliente cliente = this.repository.findById(dni).get();
 
 		double saldoTotal = 0.0;
 

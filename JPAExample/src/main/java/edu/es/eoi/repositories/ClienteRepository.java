@@ -1,19 +1,11 @@
 package edu.es.eoi.repositories;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.entities.Cliente;
 
-public interface ClienteRepository {
-
-	Cliente saveCliente(Cliente cliente);
-
-	Cliente updateCliente(Cliente cliente);
-
-	void removeCliente(Cliente cliente);
-
-	Cliente findCliente(String dni);
-
-	List<Cliente> findAll();
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente,String> {
 
 }

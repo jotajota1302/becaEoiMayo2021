@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import edu.es.eoi.entities.Banco;
@@ -14,14 +15,15 @@ import edu.es.eoi.entities.Banco;
 public class BancoRepositoryJPAImpl implements BancoRepository {
 
 	@Autowired
+	@Qualifier("myEM")
 	public EntityManager em;
 
 	@Override
-	public Banco saveBanco(Banco cliente) {
+	public Banco saveBanco(Banco banco) {
 
 		try {
 			em.getTransaction().begin();
-			em.persist(cliente);
+			em.persist(banco);
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -29,29 +31,29 @@ public class BancoRepositoryJPAImpl implements BancoRepository {
 			em.getTransaction().rollback();
 		}
 
-		return cliente;
+		return banco;
 	}
 
 	@Override
-	public Banco updateBanco(Banco cliente) {
+	public Banco updateBanco(Banco banco) {
 
 		try {
 			em.getTransaction().begin();
-			em.merge(cliente);
+			em.merge(banco);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		}
 
-		return cliente;
+		return banco;
 	}
 
 	@Override
-	public void removeBanco(Banco cliente) {
+	public void removeBanco(Banco banco) {
 
 		try {
 			em.getTransaction().begin();
-			em.remove(cliente);
+			em.remove(banco);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();

@@ -7,9 +7,13 @@ import javax.persistence.Persistence;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "edu.es.eoi.repositories")
+@EntityScan(basePackages = "edu.es.eoi.entities")
 public class MainApp {
 
 	public static void main(String[] args) {
@@ -17,7 +21,7 @@ public class MainApp {
 	}
 	
 	
-	@Bean
+	@Bean(name = "myEM")
 	public EntityManager getEntityManager() {		
 		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("BancoPersistenceUnit");

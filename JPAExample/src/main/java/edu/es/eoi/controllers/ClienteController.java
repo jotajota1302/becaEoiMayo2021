@@ -56,7 +56,7 @@ public class ClienteController {
 	
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/clientes/{dni}")
-	public ResponseEntity<?> createCliente(@PathVariable String dni){
+	public ResponseEntity<?> deleteCliente(@PathVariable String dni){
 
 		if(null==dni||dni.isEmpty()) {			
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);		
