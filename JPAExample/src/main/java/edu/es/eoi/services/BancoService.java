@@ -22,7 +22,7 @@ public class BancoService {
 
 	public BancoDto saveBanco(BancoDto banco) {
 
-		this.repository.saveBanco(mapper.map(banco, Banco.class));
+		this.repository.save(mapper.map(banco, Banco.class));
 
 		return banco;
 
@@ -30,23 +30,20 @@ public class BancoService {
 
 	public BancoDto updateBanco(BancoDto banco) {
 
-		this.repository.updateBanco(mapper.map(banco, Banco.class));
+		this.repository.save(mapper.map(banco, Banco.class));
 
 		return banco;
 
 	}
 
-	public void removeBanco(BancoDto banco, int id) {
-
-		Banco b=mapper.map(banco, Banco.class);
-		b.setId(id);
+	public void removeBanco(int id) {
 		
-		this.repository.removeBanco(b);
+		this.repository.deleteById(id);
 	}
 
 	public BancoDto findBanco(int id) {
 
-		return mapper.map(this.repository.findBanco(id), BancoDto.class);
+		return mapper.map(this.repository.findById(id).get(), BancoDto.class);
 
 	}
 

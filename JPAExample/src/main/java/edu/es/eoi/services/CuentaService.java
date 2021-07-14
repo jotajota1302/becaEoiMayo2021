@@ -22,33 +22,29 @@ public class CuentaService {
 		
 	public CuentaDto saveCuenta(CuentaDto cuenta) {
 
-			 this.repository.saveCuenta(mapper.map(cuenta, Cuenta.class));
+			 this.repository.save(mapper.map(cuenta, Cuenta.class));
 			 
 	    return cuenta;
 	}
 	
 	public CuentaDto updateCuenta(CuentaDto cuenta) {
 		
-		this.repository.updateCuenta(mapper.map(cuenta, Cuenta.class));
+		this.repository.save(mapper.map(cuenta, Cuenta.class));
 	
 		return cuenta;
 	
 	}
 	
 
-	public void removeCuenta(CuentaDto cuenta,int id) {
-
-		Cuenta c=mapper.map(cuenta, Cuenta.class);
-		c.setId(id);
+	public void removeCuenta(int id) {
 		
-		this.repository.removeCuenta(c);
-		
+		this.repository.deleteById(id);		
 	}
 
 	
 	public CuentaDto findCuenta(int id) {
 
-		return mapper.map(this.repository.findCuenta(id), CuentaDto.class);
+		return mapper.map(this.repository.findById(id), CuentaDto.class);
 
 	}
 	
@@ -60,12 +56,12 @@ public class CuentaService {
 
 	public List<CuentaDto> findAllByBancoId(int idBanco){
 	
-		return this.repository.findAllByBancoId(idBanco).stream().map(c-> mapper.map(c, CuentaDto.class)).collect(Collectors.toList());
+		return null;
 	}
 		
 	public List<CuentaDto> findAllByCliente(String dni){
 		
-		return this.repository.findAllByCliente(dni).stream().map(c-> mapper.map(c, CuentaDto.class)).collect(Collectors.toList());
+		return null;
 		
 	}
 

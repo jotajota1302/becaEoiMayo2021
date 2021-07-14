@@ -12,13 +12,13 @@ import org.springframework.stereotype.Repository;
 import edu.es.eoi.entities.Banco;
 
 @Repository
-public class BancoRepositoryJPAImpl implements BancoRepository {
+public class BancoRepositoryJPAImpl {
 
 	@Autowired
 	@Qualifier("myEM")
 	public EntityManager em;
 
-	@Override
+	
 	public Banco saveBanco(Banco banco) {
 
 		try {
@@ -34,7 +34,7 @@ public class BancoRepositoryJPAImpl implements BancoRepository {
 		return banco;
 	}
 
-	@Override
+	
 	public Banco updateBanco(Banco banco) {
 
 		try {
@@ -48,7 +48,7 @@ public class BancoRepositoryJPAImpl implements BancoRepository {
 		return banco;
 	}
 
-	@Override
+
 	public void removeBanco(Banco banco) {
 
 		try {
@@ -60,14 +60,14 @@ public class BancoRepositoryJPAImpl implements BancoRepository {
 		}
 	}
 
-	@Override
+	
 	public Banco findBanco(int id) {
 
 		return em.find(Banco.class, id);
 
 	}
 	
-	@Override
+
 	@SuppressWarnings("unchecked")
 	public List<Banco> findAll() {
 

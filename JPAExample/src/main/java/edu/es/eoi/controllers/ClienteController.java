@@ -61,7 +61,7 @@ public class ClienteController {
 		if(null==dni||dni.isEmpty()) {			
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);		
 		}		
-			service.removeCliente(ClienteDto.builder().dni(dni).build());
+			service.removeCliente(dni);
 
 		return new ResponseEntity<String>(HttpStatus.ACCEPTED);
 	

@@ -77,7 +77,7 @@ public class CuentasController {
 		if (null == id) {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
-		service.removeCuenta(CuentaDto.builder().build(),id);
+		service.removeCuenta(id);
 
 		return new ResponseEntity<String>(HttpStatus.ACCEPTED);
 

@@ -37,9 +37,9 @@ public class ClienteService {
 
 	}
 
-	public void removeCliente(ClienteDto cliente) {
+	public void removeCliente(String dni) {
 
-		this.repository.delete(mapper.map(cliente, Cliente.class));
+		this.repository.deleteById(dni);
 	}
 
 	public ClienteDto findCliente(String dni) {

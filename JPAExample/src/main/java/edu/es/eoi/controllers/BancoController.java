@@ -60,7 +60,7 @@ public class BancoController {
 		if (null == id) {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
-		service.removeBanco(BancoDto.builder().build(),id);
+		service.removeBanco(id);
 
 		return new ResponseEntity<String>(HttpStatus.ACCEPTED);
 
