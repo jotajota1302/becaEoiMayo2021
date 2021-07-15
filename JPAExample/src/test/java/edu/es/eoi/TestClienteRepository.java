@@ -1,7 +1,10 @@
 package edu.es.eoi;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.junit.After;
@@ -26,8 +29,14 @@ public class TestClienteRepository {
 	@Before
 	public void initData() {
 		
-		repository.save(new Cliente("19082371E","Jose", "C/TEST"));	
-		repository.save(new Cliente("03765983S","JJ", "direccion"));
+		Cliente c1=new Cliente("19082371E","Jose", "C/TEST");
+		c1.setFechaAlta(new Date(Calendar.getInstance().getTimeInMillis()));
+		
+		Cliente c2=new Cliente("03765983S","JJ", "direccion");
+		c2.setFechaAlta(new Date(Calendar.getInstance().getTimeInMillis()));
+				
+		repository.save(c1);			
+		repository.save(c2);
 		
 	}
 
@@ -39,6 +48,7 @@ public class TestClienteRepository {
 		
 		assertEquals("JJ",cliente.getNombre());
 		assertEquals(1,clientes.size());	
+		assertNotNull(cliente.getFechaAlta());	
 		
 		clientes=repository.findByDniEndingWith("S");
 		assertEquals(1,clientes.size());	

@@ -37,6 +37,9 @@ public class Banco {
 		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
 	private List<Cuenta> cuentas;
+	
+	@OneToMany(targetEntity = Promociones.class)
+	private List<Promociones> promociones;
 
 	public Banco(int id, String nombre, String ciudad) {
 		super();

@@ -1,5 +1,7 @@
 package edu.es.eoi.dtos;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +22,7 @@ public class ClienteDto {
 	
 	private Double saldoTotal;
 	
+	private Date fechaAlta;
 	
 
 }

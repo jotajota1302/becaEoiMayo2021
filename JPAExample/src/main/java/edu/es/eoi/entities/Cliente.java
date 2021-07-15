@@ -1,5 +1,6 @@
 package edu.es.eoi.entities;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,6 +33,9 @@ public class Cliente {
 	@Column(name = "direccion")
 	private String direccion;
 		
+	@Column(name="alta")
+	private Date fechaAlta;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
 	private List<Cuenta> cuentas;
 
@@ -41,11 +45,7 @@ public class Cliente {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.direccion = direccion;
-	}
-
-
-
-	
+	}	
 	
 
 }
