@@ -17,7 +17,7 @@ import edu.es.eoi.repositories.ClienteRepository;
 
 @RunWith(SpringRunner.class)
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 public class TestClienteRepository {
 
 	@Autowired
