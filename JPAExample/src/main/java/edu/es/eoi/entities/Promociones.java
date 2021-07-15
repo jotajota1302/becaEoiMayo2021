@@ -1,39 +1,33 @@
-package com.es.eoi.entities;
-
-import java.util.Date;
+package edu.es.eoi.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity(name = "pelicula")
+@AllArgsConstructor
 @NoArgsConstructor
-public class Pelicula {
-
+public class Promociones {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column
 	private String nombre;
-	
-	@Column(name = "estreno")
-	@Temporal(TemporalType.DATE)
-	private Date fechaEstreno;
-	
-	@Column(name = "genero")
-	private String tipo;
-
+		
+	@ManyToOne(targetEntity = Banco.class)
+	private Banco banco;
 	
 	
 }

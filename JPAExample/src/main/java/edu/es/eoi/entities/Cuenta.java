@@ -1,4 +1,4 @@
-package com.es.eoi.entities;
+package edu.es.eoi.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +19,6 @@ import lombok.ToString;
 @Table(name = "CUENTAS")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Cuenta {
@@ -31,14 +29,22 @@ public class Cuenta {
 	private int id;
 	
 	@Column(name = "saldo")
-	private int saldo;
-	
+	private double saldo;
+		
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDBANCO", referencedColumnName = "ID")
 	private Banco banco;
-	
+		
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DNI", referencedColumnName = "DNI")
 	private Cliente cliente;
+
+	public Cuenta(int id, double saldo) {
+		super();
+		this.id = id;
+		this.saldo = saldo;
+	}
+	
+	
 
 }

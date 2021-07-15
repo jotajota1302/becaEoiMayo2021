@@ -1,4 +1,4 @@
-package com.es.eoi.entities;
+package edu.es.eoi.entities;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +21,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
 public class Banco {
 	
@@ -36,9 +34,20 @@ public class Banco {
 	
 	@Column(name = "ciudad")
 	private String ciudad;
-	
+		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
 	private List<Cuenta> cuentas;
+	
+	@OneToMany(targetEntity = Promociones.class)
+	private List<Promociones> promociones;
 
+	public Banco(int id, String nombre, String ciudad) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.ciudad = ciudad;
+	}
+
+	
 
 }

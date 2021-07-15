@@ -1,28 +1,29 @@
-package com.es.eoi.repositories;
+package edu.es.eoi.repositories;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.es.eoi.entities.Banco;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+import edu.es.eoi.entities.Banco;
+
+@Repository
 public class BancoRepositoryJPAImpl {
 
+	@Autowired
+	@Qualifier("myEM")
 	public EntityManager em;
 
-	public BancoRepositoryJPAImpl() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("BancoPersistenceUnit");
-		em = factory.createEntityManager();
-	}
-
-	public Banco saveBanco(Banco cliente) {
+	
+	public Banco saveBanco(Banco banco) {
 
 		try {
 			em.getTransaction().begin();
-			em.persist(cliente);
+			em.persist(banco);
 			em.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -30,39 +31,43 @@ public class BancoRepositoryJPAImpl {
 			em.getTransaction().rollback();
 		}
 
-		return cliente;
+		return banco;
 	}
 
-	public Banco updateBanco(Banco cliente) {
+	
+	public Banco updateBanco(Banco banco) {
 
 		try {
 			em.getTransaction().begin();
-			em.merge(cliente);
+			em.merge(banco);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		}
 
-		return cliente;
+		return banco;
 	}
 
-	public void removeBanco(Banco cliente) {
+
+	public void removeBanco(Banco banco) {
 
 		try {
 			em.getTransaction().begin();
-			em.remove(cliente);
+			em.remove(banco);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 		}
 	}
 
+	
 	public Banco findBanco(int id) {
 
 		return em.find(Banco.class, id);
 
 	}
 	
+
 	@SuppressWarnings("unchecked")
 	public List<Banco> findAll() {
 
