@@ -11,5 +11,7 @@ import edu.es.eoi.entities.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente,String> {
 		
 	public List<Cliente> findByNombre(String name);
+	
+	public List<Cliente> findByDniEndingWith(String letra);
 
 }

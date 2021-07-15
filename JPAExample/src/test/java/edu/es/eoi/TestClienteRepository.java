@@ -26,27 +26,27 @@ public class TestClienteRepository {
 	@Before
 	public void initData() {
 		
+		repository.save(new Cliente("19082371E","Jose", "C/TEST"));	
 		repository.save(new Cliente("03765983S","JJ", "direccion"));
-		repository.save(new Cliente("190823718","Jose", "C/TEST"));
 		
 	}
 
 	@Test
 	public void testFindCliente() {	
 		
-		Cliente cliente=repository.findById("03765983S").get();
-				
-		List<Cliente> clientes=repository.findByNombre("JJ");
+		Cliente cliente=repository.findById("03765983S").get();				
+		List<Cliente> clientes=repository.findByNombre("JJ");		
 		
 		assertEquals("JJ",cliente.getNombre());
-		assertEquals(1,clientes.size());
-	
+		assertEquals(1,clientes.size());	
+		
+		clientes=repository.findByDniEndingWith("S");
+		assertEquals(1,clientes.size());	
 		
 	}
 	
 	@After
-	public void clear() {
-		
+	public void clear() {		
 		repository.deleteAll();
 	}
 	
