@@ -9,7 +9,7 @@ import edu.es.eoi.entities.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente,String> {
-	
-	public List<Cliente> findByNombreStartingWith(String nombre);
+		
+	public List<Cliente> findByNombre(String name);
 
 }
