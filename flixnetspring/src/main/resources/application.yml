@@ -1,0 +1,19 @@
+spring: 
+  h2:
+    console:
+      enabled: true
+      path: /console   
+  datasource:
+   url: jdbc:h2:file:~/flixnet
+   username: sa
+   password: sa
+   driverClassName: org.h2.Driver
+  jpa:  
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8080
+    
+    
+   
