@@ -25,7 +25,7 @@ public class Promociones {
 
 	@Column
 	private String nombre;
-	
+		
 	@ManyToOne(targetEntity = Banco.class)
 	private Banco banco;
 	
